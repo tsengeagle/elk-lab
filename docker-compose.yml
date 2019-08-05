@@ -2,6 +2,8 @@ version: '3'
 services:
   cerebro:
     image: lmenezes/cerebro:0.8.3
+    depends_on: 
+      - elasticsearch
     networks:
       - elk
     ports:
@@ -11,6 +13,8 @@ services:
 
   kibana:
     image: docker.elastic.co/kibana/kibana:7.3.0
+    depends_on: 
+      - elasticsearch
     networks:
       - elk
     ports:
@@ -23,12 +27,14 @@ services:
 
   logstash:
     image: docker.elastic.co/logstash/logstash:7.3.0
+    depends_on:
+      - elasticsearch
     networks:
       - elk
     ports:
       - 9600:9600
     volumes:
-      - ./container/logstash_pipeline_config/lab_data.conf:/usr/share/logstash/pipeline/lab_data.conf
+      - ./container/config/logstash_pipeline_config/lab_data.conf:/usr/share/logstash/pipeline/lab_data.conf
       - ./container/lab_data/movies.csv:/usr/share/logstash/lab_data/movies.csv
 
   elasticsearch:
@@ -57,7 +63,7 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: $PWD/container/node1
+      device: $PWD/container/data/node1
       o: bind
 
 networks:
