@@ -1,0 +1,65 @@
+version: '3'
+services:
+  cerebro:
+    image: lmenezes/cerebro:0.8.3
+    networks:
+      - elk
+    ports:
+      - "9000:9000"
+    command:
+      - -Dhosts.0.host=http://elasticsearch:9200
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.3.0
+    networks:
+      - elk
+    ports:
+      - 5601:5601
+    environment:
+      - I18N_LOCALE=zh-CN
+      - XPACK_GRAPH_ENABLED=true
+      - TIMELION_ENABLED=true
+      - XPACK_MONITORING_COLLECTION_ENABLED="true"
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.3.0
+    networks:
+      - elk
+    ports:
+      - 9600:9600
+    volumes:
+      - ./container/logstash_pipeline_config/lab_data.conf:/usr/share/logstash/pipeline/lab_data.conf
+      - ./container/lab_data/movies.csv:/usr/share/logstash/lab_data/movies.csv
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.3.0
+    networks:
+      - elk
+    ports:
+      - 9200:9200
+      - 9300:9300
+    environment:
+      - cluster.name=lab
+      - node.name=lab_1
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
+      - discovery.seed_hosts=lab_1
+      - cluster.initial_master_nodes=lab_1
+    volumes:
+      - node1_data:/usr/share/elasticsearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+
+volumes:
+  node1_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: $PWD/container/node1
+      o: bind
+
+networks:
+  elk:
+    driver: bridge
