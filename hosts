@@ -1,0 +1,11 @@
+elasticsearch1 ansible_host=192.168.1.201 ansible_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/elasticsearch1/virtualbox/private_key
+elasticsearch2 ansible_host=192.168.1.202 ansible_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/elasticsearch2/virtualbox/private_key
+dashboard ansible_host=192.168.1.200 ansible_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/dashboard/virtualbox/private_key
+demo1 ansible_host=192.168.1.101 ansible_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/demo1/virtualbox/private_key
+
+[elasticsearch]
+elasticsearch1
+elasticsearch2
+
+[ap]
+demo1
