@@ -1,0 +1,14 @@
+# 設定elastic
+- hosts: elasticsearch1
+  become: yes
+  tasks:
+  - name: master node demo
+
+# 設定logstash
+- hosts: logstash
+  become: yes
+  tasks:
+  - name: logstash config
+
+# 設定filebeat
+- hosts: ap

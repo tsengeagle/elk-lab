@@ -1,0 +1,121 @@
+- hosts: all
+  become: yes
+  vars:
+    basic_packages:
+      - epel-release
+      - jdk-8u221-linux-x64.rpm
+  tasks:
+  - name: copy jdk
+    copy:
+      src: files/jdk-8u221-linux-x64.rpm
+      dest: jdk-8u221-linux-x64.rpm
+
+  - name: install basic package
+    yum:
+      name: "{{ item }}"
+      state: latest
+    loop: "{{ basic_packages }}"
+
+- hosts: elasticsearch
+  become: yes
+  vars:
+    elk_packages:
+      - elasticsearch-7.3.0-x86_64.rpm
+  tasks:
+  - name: copy elasticsearch package
+    copy:
+      src: "files/{{ item }}"
+      dest: "{{ item }}"
+    loop: "{{ elk_packages }}"
+
+  - name: install elasticsearch
+    yum:
+      name: "{{ item }}"
+    loop: "{{ elk_packages }}"
+
+# 安裝kibana
+- hosts: dashboard
+  become: yes
+  vars:
+    packages:
+      - kibana-7.3.0-x86_64.rpm
+  tasks:
+  - name: copy package
+    copy:
+      src: "files/{{ item }}"
+      dest: "{{ item }}"
+    loop: "{{ packages }}"
+
+  - name: install
+    yum:
+      name: "{{ item }}"
+    loop: "{{ packages }}"
+
+# 安裝logstash
+- hosts: logstash
+  become: yes
+  vars:
+    packages:
+      - logstash-7.3.0.rpm
+  tasks:
+  - name: copy package
+    copy:
+      src: "files/{{ item }}"
+      dest: "{{ item }}"
+    loop: "{{ packages }}"
+
+  - name: install
+    yum:
+      name: "{{ item }}"
+    loop: "{{ packages }}"
+
+# 安裝tomcat
+- hosts: ap
+  become: yes
+  vars:
+    ap_packages:
+      - tomcat
+      - filebeat-7.3.0-x86_64.rpm
+  tasks:
+  - name: copy filebeat
+    copy:
+      src: files/filebeat-7.3.0-x86_64.rpm
+      dest: filebeat-7.3.0-x86_64.rpm
+
+  - name: install filebeat and tomcat
+    yum:
+      name: "{{ item }}"
+    loop: "{{ ap_packages }}"
+
+  - name: start tomcat
+    service:
+      name: tomcat
+      state: started
+
+  - name: start filebeat
+    service:
+      name: filebeat
+      state: started
+
+# 設定範例站台
+- hosts: ap
+  become: yes
+  tasks:
+  - name: demo folder
+    file:
+      path: /usr/share/tomcat/webapps/demo
+      state: directory
+      group: tomcat
+      owner: tomcat
+
+  - name: deploy demo web app
+    template:
+      src: index.html
+      dest: /usr/share/tomcat/webapps/demo/index.html
+      group: tomcat
+      owner: tomcat
+
+  - name: restart tomcat service
+    service:
+      name: tomcat
+      state: restarted

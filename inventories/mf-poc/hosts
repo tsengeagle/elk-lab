@@ -1,0 +1,2 @@
+elk-node1 ansible_host=10.2.145.14
+elk-node2 ansible_host=10.2.145.15
