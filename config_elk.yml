@@ -1,0 +1,13 @@
+- hosts: elasticsearch
+  become: yes
+  tasks:
+  - name: 設定 jvm 的記憶體使用
+    lineinfile:
+      path: /etc/elasticsearch/jvm.options
+      regexp: '^{{ item }}'
+      line: '{{ item }}8g'
+      backup: yes
+    loop:
+      - '-Xms'
+      - '-Xmx'
+

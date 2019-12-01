@@ -1,2 +1,16 @@
-elk-node1 ansible_host=10.2.145.14
-elk-node2 ansible_host=10.2.145.15
+elasticsearch1 ansible_host=10.2.145.16
+elasticsearch2 ansible_host=10.2.145.17
+
+[elasticsearch]
+elasticsearch1
+elasticsearch2
+
+[logstash]
+elasticsearch1
+
+[dashboard]
+elasticsearch1
+
+[linux-vm]
+elasticsearch1
+elasticsearch2

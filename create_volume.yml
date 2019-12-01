@@ -1,0 +1,25 @@
+- hosts: elasticsearch
+  become: yes
+  tasks:
+    - name: 建立LVG
+      lvg:
+        vg: vg.elasticsearch
+        pvs: /dev/sdb
+
+    - name: 用LVG產生LV
+      lvol:
+        lv: lv.elasticsearch
+        vg: vg.elasticsearch
+        size: 100%PVS
+
+    - name: 用ext4格式化
+      filesystem:
+        fstype: ext4
+        dev: /dev/vg.elasticsearch/lv.elasticsearch
+
+    - name: 掛載
+      mount:
+        name: /var/lib/elasticsearch
+        src: /dev/vg.elasticsearch/lv.elasticsearch
+        fstype: ext4
+        state: mounted
