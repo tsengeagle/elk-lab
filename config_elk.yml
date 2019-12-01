@@ -11,3 +11,15 @@
       - '-Xms'
       - '-Xmx'
 
+    # 用template設定cluster
+  # - name: 設定ElasticSearch集群
+  #   template:
+  #     src: elasticsearch.yml.j2
+  #     dest: /etc/elasticsearch/elasticsearch.yml
+  #   become: yes
+
+  - name: 重啟ELK
+    service:
+      name: elasticsearch
+      state: restarted
+      enabled: yes

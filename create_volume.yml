@@ -17,9 +17,16 @@
         fstype: ext4
         dev: /dev/vg.elasticsearch/lv.elasticsearch
 
+    - name: 確保掛載路徑
+      file:
+        path: /var/lib/elasticsearch
+        owner: elasticsearch
+        group: elasticsearch
+        state: directory
+
     - name: 掛載
       mount:
-        name: /var/lib/elasticsearch
+        path: /var/lib/elasticsearch
         src: /dev/vg.elasticsearch/lv.elasticsearch
         fstype: ext4
         state: mounted
