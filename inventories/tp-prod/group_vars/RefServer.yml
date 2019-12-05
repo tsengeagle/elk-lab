@@ -1,0 +1,5 @@
+name: RefServer
+id: 402
+description: 轉(代)檢診 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/RefServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/RefServer

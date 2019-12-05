@@ -1,0 +1,396 @@
+monitoring ansible_host=10.2.145.1
+logstash ansible_host=10.2.145.16 port=9601
+
+tp-prod-ha1-apl01 ansible_host=10.2.105.131 vip=10.2.105.111
+tp-prod-ha1-apl02 ansible_host=10.2.105.132 vip=10.2.105.112
+tp-prod-ha1-apl03 ansible_host=10.2.105.133 vip=10.2.105.113
+tp-prod-ha1-apl04 ansible_host=10.2.105.134 vip=10.2.105.114
+tp-prod-ha1-apl05 ansible_host=10.2.105.135 vip=10.2.105.115
+tp-prod-ha1-apl06 ansible_host=10.2.105.136 vip=10.2.105.116
+tp-prod-ha1-apl07 ansible_host=10.2.105.137 vip=10.2.105.117
+tp-prod-ha1-apl08 ansible_host=10.2.105.138 vip=10.2.105.118
+tp-prod-ha1-apl09 ansible_host=10.2.105.139 vip=10.2.105.119
+tp-prod-ha1-apl10 ansible_host=10.2.105.140 vip=10.2.105.110
+tp-prod-ha1-apl11 ansible_host=10.2.105.141 vip=10.2.105.121
+tp-prod-ha1-apl12 ansible_host=10.2.105.142 vip=10.2.105.122
+tp-prod-ha1-apw01 ansible_host=10.2.105.143 vip=10.2.105.123
+tp-prod-ha1-apw02 ansible_host=10.2.105.144 vip=10.2.105.124
+tp-prod-ha2-apl01 ansible_host=10.2.105.151 vip=10.2.105.111
+tp-prod-ha2-apl02 ansible_host=10.2.105.152 vip=10.2.105.112
+tp-prod-ha2-apl03 ansible_host=10.2.105.153 vip=10.2.105.113
+tp-prod-ha2-apl04 ansible_host=10.2.105.154 vip=10.2.105.114
+tp-prod-ha2-apl05 ansible_host=10.2.105.155 vip=10.2.105.115
+tp-prod-ha2-apl06 ansible_host=10.2.105.156 vip=10.2.105.116
+tp-prod-ha2-apl07 ansible_host=10.2.105.157 vip=10.2.105.117
+tp-prod-ha2-apl08 ansible_host=10.2.105.158 vip=10.2.105.118
+tp-prod-ha2-apl09 ansible_host=10.2.105.159 vip=10.2.105.119
+tp-prod-ha2-apl10 ansible_host=10.2.105.160 vip=10.2.105.120
+tp-prod-ha2-apl11 ansible_host=10.2.105.161 vip=10.2.105.121
+tp-prod-ha2-apl12 ansible_host=10.2.105.162 vip=10.2.105.122
+tp-prod-ha2-apw01 ansible_host=10.2.105.163 vip=10.2.105.123
+tp-prod-ha2-apw02 ansible_host=10.2.105.164 vip=10.2.105.124
+
+tp-prod-ha3-apl01 ansible_host=10.2.105.145
+tp-prod-ha3-apl02 ansible_host=10.2.105.146
+tp-prod-ha3-apl03 ansible_host=10.2.105.148
+tp-prod-ha4-apl01 ansible_host=10.2.105.165
+tp-prod-ha4-apl02 ansible_host=10.2.105.166
+tp-prod-ha4-apl03 ansible_host=10.2.105.167
+
+tp-prod-ha5-apl01 ansible_host=10.2.105.147
+
+[linux-ap-vm]
+tp-prod-ha1-apl01
+tp-prod-ha1-apl02
+tp-prod-ha1-apl03
+tp-prod-ha1-apl04
+tp-prod-ha1-apl05
+tp-prod-ha1-apl06
+tp-prod-ha1-apl07
+tp-prod-ha1-apl08
+tp-prod-ha1-apl09
+tp-prod-ha1-apl10
+tp-prod-ha1-apl11
+tp-prod-ha1-apl12
+tp-prod-ha2-apl01
+tp-prod-ha2-apl02
+tp-prod-ha2-apl03
+tp-prod-ha2-apl04
+tp-prod-ha2-apl05
+tp-prod-ha2-apl06
+tp-prod-ha2-apl07
+tp-prod-ha2-apl08
+tp-prod-ha2-apl09
+tp-prod-ha2-apl10
+tp-prod-ha2-apl11
+tp-prod-ha2-apl12
+tp-prod-ha3-apl01
+tp-prod-ha3-apl02
+tp-prod-ha4-apl01
+tp-prod-ha4-apl02
+tp-prod-ha5-apl01
+tp-prod-ha3-apl03
+tp-prod-ha4-apl03
+
+[windows-vm]
+tp-prod-ha1-apw01
+tp-prod-ha1-apw02
+tp-prod-ha2-apw01
+tp-prod-ha2-apw02
+tp-prod-ha3-apw01
+tp-prod-ha4-apw01
+
+[linux-ap-instance]
+AdtServer1 vip=10.2.105.114 ansible_host=10.2.105.134 port=8180 service_type=openjdk
+AdtServer2 vip=10.2.105.114 ansible_host=10.2.105.154 port=8180 service_type=openjdk
+AdtServer3 vip=10.2.105.114 ansible_host=10.2.105.148 port=8180
+AdtServer4 vip=10.2.105.114 ansible_host=10.2.105.167 port=8180
+AppServer1 vip=10.2.105.119 ansible_host=10.2.105.139 port=8380 service_type=openjdk
+AppServer2 vip=10.2.105.119 ansible_host=10.2.105.159 port=8380 service_type=openjdk
+ApyServer1 vip=10.2.105.120 ansible_host=10.2.105.140 port=8180 service_type=openjdk
+ApyServer2 vip=10.2.105.120 ansible_host=10.2.105.160 port=8180 service_type=openjdk
+BlodServer1 vip=10.2.105.116 ansible_host=10.2.105.136 port=8180 service_type=openjdk
+BlodServer2 vip=10.2.105.116 ansible_host=10.2.105.156 port=8180 service_type=openjdk
+CapServer1 vip=10.2.105.111 ansible_host=10.2.105.131 port=8580
+CapServer2 vip=10.2.105.111 ansible_host=10.2.105.151 port=8580
+CodServer1 vip=10.2.105.118 ansible_host=10.2.105.138 port=8380 service_type=openjdk
+CodServer2 vip=10.2.105.118 ansible_host=10.2.105.158 port=8380 service_type=openjdk
+CommServer1 vip=10.2.105.112 ansible_host=10.2.105.132 port=8380 service_type=openjdk
+CommServer2 vip=10.2.105.112 ansible_host=10.2.105.152 port=8380 service_type=openjdk
+CommServer3 vip=10.2.105.112 ansible_host=10.2.105.147 port=8480
+CommServer4 vip=10.2.105.112 ansible_host=10.2.105.167 port=8480
+ComServer1 vip=10.2.105.111 ansible_host=10.2.105.131 port=8180 min_memory=12000 max_memory=12000
+ComServer2 vip=10.2.105.111 ansible_host=10.2.105.151 port=8180 min_memory=12000 max_memory=12000
+ComServer3 vip=10.2.105.111 ansible_host=10.2.105.146 port=8380 min_memory=12000 max_memory=12000
+ComServer4 vip=10.2.105.111 ansible_host=10.2.105.148 port=8280 min_memory=12000 max_memory=12000
+ComServer5 vip=10.2.105.111 ansible_host=10.2.105.167 port=8280 min_memory=12000 max_memory=12000
+ComServer6 vip=10.2.105.111 ansible_host=10.2.105.147 port=8280 min_memory=12000 max_memory=12000
+CpoeServer1 vip=10.2.105.117 ansible_host=10.2.105.137 port=8380 service_type=openjdk
+CpoeServer2 vip=10.2.105.117 ansible_host=10.2.105.157 port=8380 service_type=openjdk
+DietServer1 vip=10.2.105.116 ansible_host=10.2.105.136 port=8380 service_type=openjdk
+DietServer2 vip=10.2.105.116 ansible_host=10.2.105.156 port=8380 service_type=openjdk
+DocServer1 vip=10.2.105.112 ansible_host=10.2.105.132 port=8480 frontend=NoteWeb service_type=openjdk
+DocServer2 vip=10.2.105.112 ansible_host=10.2.105.152 port=8480 frontend=NoteWeb service_type=openjdk
+DrgServer1 vip=10.2.105.114 ansible_host=10.2.105.134 port=8480 service_type=openjdk
+DrgServer2 vip=10.2.105.114 ansible_host=10.2.105.154 port=8480 service_type=openjdk
+EaiServer1 vip=10.2.105.122 ansible_host=10.2.105.142 port=8480 service_type=openjdk
+EaiServer2 vip=10.2.105.122 ansible_host=10.2.105.162 port=8480 service_type=openjdk
+EmrQueryServer1 vip=10.2.105.112 ansible_host=10.2.105.132 port=8280 service_type=openjdk
+EmrQueryServer2 vip=10.2.105.112 ansible_host=10.2.105.152 port=8280 service_type=openjdk
+ErsServer1 vip=10.2.105.122 ansible_host=10.2.105.142 port=8380 service_type=openjdk
+ErsServer2 vip=10.2.105.122 ansible_host=10.2.105.162 port=8380 service_type=openjdk
+EventServer1 vip=10.2.105.113 ansible_host=10.2.105.133 port=8280 service_type=openjdk
+EventServer2 vip=10.2.105.113 ansible_host=10.2.105.153 port=8280 service_type=openjdk
+EventServer3 vip=10.2.105.113 ansible_host=10.2.105.145 port=8280
+EventServer4 vip=10.2.105.113 ansible_host=10.2.105.165 port=8280
+ExamServer1 vip=10.2.105.115 ansible_host=10.2.105.135 port=8180 service_type=openjdk
+ExamServer2 vip=10.2.105.115 ansible_host=10.2.105.155 port=8180 service_type=openjdk
+FileServer1 vip=10.2.105.121 ansible_host=10.2.105.141 port=8480 service_type=openjdk
+FileServer2 vip=10.2.105.121 ansible_host=10.2.105.161 port=8480 service_type=openjdk
+GmsServer1 vip=10.2.105.116 ansible_host=10.2.105.136 port=8280 service_type=openjdk
+GmsServer2 vip=10.2.105.116 ansible_host=10.2.105.156 port=8280 service_type=openjdk
+GmsServer3 vip=10.2.105.116 ansible_host=10.2.105.145 port=8380
+GmsServer4 vip=10.2.105.116 ansible_host=10.2.105.165 port=8380
+HcaEmrServer1 vip=10.2.105.113 ansible_host=10.2.105.133 port=8380 service_type=openjdk
+HcaEmrServer2 vip=10.2.105.113 ansible_host=10.2.105.153 port=8380 service_type=openjdk
+HcaEmrServer3 vip=10.2.105.113 ansible_host=10.2.105.146 port=8180
+HcaEmrServer4 vip=10.2.105.113 ansible_host=10.2.105.166 port=8180
+HmoServer1 vip=10.2.105.119 ansible_host=10.2.105.139 port=8180 service_type=openjdk
+HmoServer2 vip=10.2.105.119 ansible_host=10.2.105.159 port=8180 service_type=openjdk
+HmsServer1 vip=10.2.105.117 ansible_host=10.2.105.137 port=8580 service_type=openjdk
+HmsServer2 vip=10.2.105.117 ansible_host=10.2.105.157 port=8580 service_type=openjdk
+IbilServer1 vip=10.2.105.114 ansible_host=10.2.105.134 port=8280 service_type=openjdk
+IbilServer2 vip=10.2.105.114 ansible_host=10.2.105.154 port=8280 service_type=openjdk
+IccServer1 vip=10.2.105.114 ansible_host=10.2.105.134 port=8380  service_type=openjdk
+IccServer2 vip=10.2.105.114 ansible_host=10.2.105.154 port=8380  service_type=openjdk
+InhServer1 vip=10.2.105.118 ansible_host=10.2.105.138 port=8580 service_type=openjdk
+InhServer2 vip=10.2.105.118 ansible_host=10.2.105.158 port=8580 service_type=openjdk
+IpdPatMgmtServer1 vip=10.2.105.112 ansible_host=10.2.105.132 port=8180 service_type=openjdk
+IpdPatMgmtServer2 vip=10.2.105.112 ansible_host=10.2.105.152 port=8180 service_type=openjdk
+JobServer1 vip=10.2.105.121 ansible_host=10.2.105.141 port=8180 service_type=openjdk
+LisServer1 vip=10.2.105.120 ansible_host=10.2.105.140 port=8380 service_type=openjdk
+LisServer2 vip=10.2.105.120 ansible_host=10.2.105.160 port=8380 service_type=openjdk
+MccServer1 vip=10.2.105.115 ansible_host=10.2.105.135 port=8480 service_type=openjdk
+MccServer2 vip=10.2.105.115 ansible_host=10.2.105.155 port=8480 service_type=openjdk
+MisServer1 vip=10.2.105.111 ansible_host=10.2.105.131 port=8280
+MisServer2 vip=10.2.105.111 ansible_host=10.2.105.151 port=8280
+MmsServer1 vip=10.2.105.120 ansible_host=10.2.105.140 port=8580 service_type=openjdk
+MmsServer2 vip=10.2.105.120 ansible_host=10.2.105.160 port=8580 service_type=openjdk
+MrmServer1 vip=10.2.105.119 ansible_host=10.2.105.139 port=8280 service_type=openjdk
+MrmServer2 vip=10.2.105.119 ansible_host=10.2.105.159 port=8280 service_type=openjdk
+NisServer1 vip=10.2.105.117 ansible_host=10.2.105.137 port=8180 service_type=openjdk
+NisServer2 vip=10.2.105.117 ansible_host=10.2.105.157 port=8180 service_type=openjdk
+NisServer3 vip=10.2.105.117 ansible_host=10.2.105.166 port=8380
+ObilServer1 vip=10.2.105.119 ansible_host=10.2.105.139 port=8480 service_type=openjdk
+ObilServer2 vip=10.2.105.119 ansible_host=10.2.105.159 port=8480 service_type=openjdk
+ObilServer3 vip=10.2.105.119 ansible_host=10.2.105.166 port=8480
+ObsServer1 vip=10.2.105.111 ansible_host=10.2.105.131 port=8380 frontend=emr
+ObsServer2 vip=10.2.105.111 ansible_host=10.2.105.151 port=8380 frontend=emr
+ObsServer3 vip=10.2.105.111 ansible_host=10.2.105.145 port=8180 frontend=emr
+ObsServer4 vip=10.2.105.111 ansible_host=10.2.105.165 port=8180 frontend=emr
+OerPatMgmtServer1 vip=10.2.105.117 ansible_host=10.2.105.137 port=8280 service_type=openjdk
+OerPatMgmtServer2 vip=10.2.105.117 ansible_host=10.2.105.157 port=8280 service_type=openjdk
+OerPatMgmtServer3 vip=10.2.105.117 ansible_host=10.2.105.145 port=8480
+OerPatMgmtServer4 vip=10.2.105.117 ansible_host=10.2.105.165 port=8480
+OnhServer1 vip=10.2.105.119 ansible_host=10.2.105.139 port=8580 service_type=openjdk
+OnhServer2 vip=10.2.105.119 ansible_host=10.2.105.159 port=8580 service_type=openjdk
+OrServer1 vip=10.2.105.116 ansible_host=10.2.105.136 port=8480 service_type=openjdk
+OrServer2 vip=10.2.105.116 ansible_host=10.2.105.156 port=8480 service_type=openjdk
+PahoServer1 vip=10.2.105.120 ansible_host=10.2.105.140 port=8280 service_type=openjdk
+PahoServer2 vip=10.2.105.120 ansible_host=10.2.105.160 port=8280 service_type=openjdk
+PhmServer1 vip=10.2.105.118 ansible_host=10.2.105.138 port=8180 service_type=openjdk
+PhmServer2 vip=10.2.105.118 ansible_host=10.2.105.158 port=8180 service_type=openjdk
+PhmServer3 vip=10.2.105.118 ansible_host=10.2.105.146 port=8280
+PhmServer4 vip=10.2.105.118 ansible_host=10.2.105.166 port=8280
+PhmServer5 vip=10.2.105.118 ansible_host=10.2.105.147 port=8180
+PhnServer1 vip=10.2.105.120 ansible_host=10.2.105.140 port=8480 service_type=openjdk
+PhnServer2 vip=10.2.105.120 ansible_host=10.2.105.160 port=8480 service_type=openjdk
+PmcServer1 vip=10.2.105.113 ansible_host=10.2.105.133 port=8480 service_type=openjdk
+PmcServer2 vip=10.2.105.113 ansible_host=10.2.105.153 port=8480 service_type=openjdk
+QnaServer1 vip=10.2.105.116 ansible_host=10.2.105.136 port=8580 service_type=openjdk
+QnaServer2 vip=10.2.105.116 ansible_host=10.2.105.156 port=8580 service_type=openjdk
+
+RefServer1 vip=10.2.105.115 ansible_host=10.2.105.135 port=8280 service_type=openjdk
+RefServer2 vip=10.2.105.115 ansible_host=10.2.105.155 port=8280 service_type=openjdk
+RegServer1 vip=10.2.105.115 ansible_host=10.2.105.135 port=8380 service_type=openjdk
+RegServer2 vip=10.2.105.115 ansible_host=10.2.105.155 port=8380 service_type=openjdk
+RegServer3 vip=10.2.105.115 ansible_host=10.2.105.146 port=8480
+RegServer4 vip=10.2.105.115 ansible_host=10.2.105.148 port=8380
+RegServer5 vip=10.2.105.115 ansible_host=10.2.105.167 port=8380
+RehServer1 vip=10.2.105.115 ansible_host=10.2.105.135 port=8580 service_type=openjdk
+RehServer2 vip=10.2.105.115 ansible_host=10.2.105.155 port=8580 service_type=openjdk
+RtServer1 vip=10.2.105.118 ansible_host=10.2.105.138 port=8280 service_type=openjdk
+RtServer2 vip=10.2.105.118 ansible_host=10.2.105.158 port=8280 service_type=openjdk
+SecServer1 vip=10.2.105.113 ansible_host=10.2.105.133 port=8180 service_type=openjdk with_portal=true frontend=TzuchiServer min_memory=12000 max_memory=12000
+SecServer2 vip=10.2.105.113 ansible_host=10.2.105.153 port=8180 service_type=openjdk with_portal=true frontend=TzuchiServer min_memory=12000 max_memory=12000
+SecServer3 vip=10.2.105.113 ansible_host=10.2.105.147 port=8380 with_portal=true frontend=TzuchiServer min_memory=12000 max_memory=12000
+SecServer4 vip=10.2.105.113 ansible_host=10.2.105.148 port=8480 with_portal=true frontend=TzuchiServer min_memory=12000 max_memory=12000
+SecServer5 vip=10.2.105.113 ansible_host=10.2.105.141 port=8280 service_type=openjdk with_portal=true frontend=TzuchiServer min_memory=12000 max_memory=12000
+SecServer6 vip=10.2.105.113 ansible_host=10.2.105.161 port=8280 service_type=openjdk with_portal=true frontend=TzuchiServer min_memory=12000 max_memory=12000
+VaccServer1 vip=10.2.105.117 ansible_host=10.2.105.137 port=8480 service_type=openjdk
+VaccServer2 vip=10.2.105.117 ansible_host=10.2.105.157 port=8480 service_type=openjdk
+XrayServer1 vip=10.2.105.118 ansible_host=10.2.105.138 port=8480 service_type=openjdk
+XrayServer2 vip=10.2.105.118 ansible_host=10.2.105.158 port=8480 service_type=openjdk
+
+[windows-ap-instance]
+WinAppServer1     vip=10.2.105.124 ansible_host=10.2.105.144 port=8380 name=AppServer
+WinAppServer2     vip=10.2.105.124 ansible_host=10.2.105.164 port=8380 name=AppServer
+WinCapServer1     vip=10.2.105.123 ansible_host=10.2.105.143 port=8280 name=CapServer
+WinCapServer2     vip=10.2.105.123 ansible_host=10.2.105.163 port=8280 name=CapServer
+WinGmsServer1     vip=10.2.105.123 ansible_host=10.2.105.143 port=8180 name=GmsServer
+WinGmsServer2     vip=10.2.105.123 ansible_host=10.2.105.163 port=8180 name=GmsServer
+WinHmsServer1     vip=10.2.105.123 ansible_host=10.2.105.143 port=8380 name=HmsServer
+WinHmsServer2     vip=10.2.105.123 ansible_host=10.2.105.163 port=8380 name=HmsServer
+WinInhServer1     vip=10.2.105.124 ansible_host=10.2.105.144 port=8180 name=InhServer
+WinInhServer2     vip=10.2.105.124 ansible_host=10.2.105.164 port=8180 name=InhServer
+WinOnhServer1     vip=10.2.105.124 ansible_host=10.2.105.144 port=8280 name=OnhServer
+WinOnhServer2     vip=10.2.105.124 ansible_host=10.2.105.164 port=8280 name=OnhServer
+WinReportServer1  vip=10.2.105.123 ansible_host=10.2.105.143 port=8080 name=ReportServer
+WinReportServer2  vip=10.2.105.123 ansible_host=10.2.105.163 port=8080 name=ReportServer
+WinReportServer3  vip=10.2.105.123 ansible_host=10.2.105.150 port=8080 name=ReportServer
+WinReportServer4  vip=10.2.105.123 ansible_host=10.2.105.170 port=8080 name=ReportServer
+WinTsQueryServer1 vip=10.2.105.124 ansible_host=10.2.105.144 port=8440 name=TsQueryServer
+WinTsQueryServer2 vip=10.2.105.124 ansible_host=10.2.105.164 port=8440 name=TsQueryServer
+
+
+[AdtServer]
+AdtServer[1:4]
+
+[AppServer]
+AppServer[1:2]
+WinAppServer[1:2]
+
+[ApyServer]
+ApyServer[1:2]
+
+[BlodServer]
+BlodServer[1:2]
+
+[CapServer]
+CapServer[1:2]
+WinCapServer[1:2]
+
+[CodServer]
+CodServer[1:2]
+
+[CommServer]
+CommServer[1:4]
+
+[ComServer]
+ComServer[1:6]
+
+[CpoeServer]
+CpoeServer[1:2]
+
+[DietServer]
+DietServer[1:2]
+
+[DocServer]
+DocServer[1:2]
+
+[DrgServer]
+DrgServer[1:2]
+
+[EaiServer]
+EaiServer[1:2]
+
+[EmrQueryServer]
+EmrQueryServer[1:2]
+
+[ErsServer]
+ErsServer[1:2]
+
+[EventServer]
+EventServer[1:4]
+
+[ExamServer]
+ExamServer[1:2]
+
+[FileServer]
+FileServer[1:2]
+
+[GmsServer]
+GmsServer[1:4]
+WinGmsServer[1:2]
+
+[HcaEmrServer]
+HcaEmrServer[1:4]
+
+[HmoServer]
+HmoServer[1:2]
+
+[HmsServer]
+HmsServer[1:2]
+WinHmsServer[1:2]
+
+[IbilServer]
+IbilServer[1:2]
+
+[IccServer]
+IccServer[1:2]
+
+[InhServer]
+InhServer[1:2]
+WinInhServer[1:2]
+
+[IpdPatMgmtServer]
+IpdPatMgmtServer[1:2]
+
+[JobServer]
+JobServer1
+
+[LisServer]
+LisServer[1:2]
+
+[MccServer]
+MccServer[1:2]
+
+[MisServer]
+MisServer[1:2]
+
+[MmsServer]
+MmsServer[1:2]
+
+[MrmServer]
+MrmServer[1:2]
+
+[NisServer]
+NisServer[1:3]
+
+[ObilServer]
+ObilServer[1:3]
+
+[ObsServer]
+ObsServer[1:4]
+
+[OerPatMgmtServer]
+OerPatMgmtServer[1:4]
+
+[OnhServer]
+OnhServer[1:2]
+WinOnhServer[1:2]
+
+[OrServer]
+OrServer[1:2]
+
+[PahoServer]
+PahoServer[1:2]
+
+[PhmServer]
+PhmServer[1:5]
+
+[PhnServer]
+PhnServer[1:2]
+
+[PmcServer]
+PmcServer[1:2]
+
+[QnaServer]
+QnaServer[1:2]
+
+[RefServer]
+RefServer[1:2]
+
+[RegServer]
+RegServer[1:5]
+
+[RehServer]
+RehServer[1:2]
+
+[ReportServer]
+WinReportServer[1:4]
+
+[RtServer]
+RtServer[1:2]
+
+[SecServer]
+SecServer[1:6]
+
+[TsQueryServer]
+WinTsQueryServer[1:2]
+
+[VaccServer]
+VaccServer[1:2]
+
+[XrayServer]
+XrayServer[1:2]

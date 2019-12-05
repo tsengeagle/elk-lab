@@ -1,0 +1,5 @@
+name: PhnServer
+id: 380
+description: 公衛監測 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/PhnServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/PhnServer

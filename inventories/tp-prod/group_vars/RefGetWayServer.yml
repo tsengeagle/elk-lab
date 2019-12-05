@@ -1,0 +1,5 @@
+name: RefGetWayServer
+id: 695
+description: 共通傳輸平台轉診上傳 gateway server
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/refgetwayserver.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/refgetwayserver

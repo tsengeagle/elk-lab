@@ -1,0 +1,5 @@
+name: ReportServer
+id: 389
+description: 報表管理 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/ReportServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/ReportServer

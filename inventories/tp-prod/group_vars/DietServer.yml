@@ -1,0 +1,5 @@
+name: DietServer
+id: 359
+description: 營養室管理 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/DietServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/DietServer

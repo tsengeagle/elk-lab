@@ -1,0 +1,5 @@
+name: OrServer
+id: 406
+description: 手術麻醉管理 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/OrServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/OrServer

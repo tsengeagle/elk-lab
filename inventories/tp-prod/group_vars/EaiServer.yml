@@ -1,0 +1,5 @@
+name: EaiServer
+id: 443
+description: EAI grails project (Enterprise Application Integration)
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/EaiServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/EaiServer

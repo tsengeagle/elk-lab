@@ -1,0 +1,5 @@
+name: PahoServer
+id: 381
+description: 病理系統 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/PahoServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/PahoServer

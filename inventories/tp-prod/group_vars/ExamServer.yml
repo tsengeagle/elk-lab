@@ -1,0 +1,5 @@
+name: ExamServer
+id: 340
+description: 檢查中心 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/ExamServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/ExamServer

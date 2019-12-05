@@ -1,0 +1,72 @@
+package_source: "http://10.2.145.150:8081/artifactory/his5/package"
+java: "jre-8u151-linux-x64.rpm"
+tomcat: "apache-tomcat-8.5.31.tar.gz"
+java_agent: "jmx_prometheus_javaagent-0.3.1.jar"
+
+prometheus_server: 10.2.145.1
+
+service_type: jre
+gc_param:
+gc_type: cms_gc
+
+g1_gc: '-XX:+UseG1GC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:PatallelGCThreads=8 -XX:GoncGCThreads=2 -XX:InitiatingHeapOccupancyPercent=45'
+cms_gc: "-XX:PermSize={{ min_perm | int }}m -XX:MaxPermSize={{ max_perm | int }}m -XX:NewSize={{ min_new | int }}m -XX:MaxNewSize={{ max_new | int }}m -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=50 -XX:+UseCMSInitiatingOccupancyOnly -XX:+CMSParallelRemarkEnabled -Djava.awt.headless=true -Dsun.rmi.dgc.client.gcInterval=3600000 -Dsun.rmi.dgc.server.gcInterval=3600000 -XX:+PrintGCDetails -XX:+PrintGCDateStamps"
+
+min_memory: 8000
+max_memory: 8000
+min_perm: "{{ min_memory * 0.2 }}"
+max_perm: "{{ max_memory * 0.3 }}"
+min_new: "{{ min_memory * 0.3 }}"
+max_new: "{{ max_memory * 0.4 }}"
+
+ap_environment: tp-prod
+ap_root: "/home/tomcat/server"
+
+release_repo: "http://10.2.145.150:8081/artifactory"
+release_path: "tp-his/backend"
+
+ntp_server: "tpntp.tzuchi.com.tw"
+
+special_server:
+  - name: hrpserver
+    ip: 10.2.105.100
+  - name: TzuchiServer
+    ip: 10.2.105.113
+  - name: APL03
+    ip: 10.2.105.113
+  - name: FileServer
+    ip: 10.2.105.121
+
+file_server: 10.2.105.121
+
+users:
+  - name: gitlab-runner
+    pub_key: files/his-gitlab-runner.pub
+    sudoers: True
+  - name: tsengeagle
+    pub_key: ~/.ssh/id_rsa.pub
+    sudoers: True
+  - name: tomcat
+    password: P@ssword
+    pub_key: files/his-gitlab-runner.pub
+    sudoers: True
+  - name: it-pohai
+    password: 5tgb^YHN
+  - name: it-viewer
+    password: P@ssword
+
+# windows用的
+package_repo: "http://artifactory.tzuchi-healthcare.org.tw:8081/artifactory/his5/package"
+win_java_package: "jdk-8u221-windows-x64.exe"
+win_java_package_dest: 'c:\{{ java_package }}'
+win_java_path: 'c:\jdk-8u221'
+win_node_exporter: "wmi_exporter-0.8.0-amd64.msi"
+win_node_exporter_dest: 'c:\{{ win_node_exporter }}'
+
+win_tomcat: "apache-tomcat-8.5.43-windows-x64.zip"
+win_tomcat_instance: "Tomcat 8.0"
+win_service_dest: 'c:\'
+
+netscaler:
+  - 10.2.104.21
+  - 10.2.104.22

@@ -1,0 +1,5 @@
+name: IpdPatMgmtServer
+id: 348
+description: 住院醫囑 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/IpdPatMgmtServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/IpdPatMgmtServer

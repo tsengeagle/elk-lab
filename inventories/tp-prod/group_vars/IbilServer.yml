@@ -1,0 +1,5 @@
+name: IbilServer
+id: 337
+description: 住院帳務 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/IbilServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/IbilServer

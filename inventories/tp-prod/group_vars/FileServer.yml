@@ -1,0 +1,5 @@
+name: FileServer
+id: 403
+description: 檔案上傳下載 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/FileServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/FileServer

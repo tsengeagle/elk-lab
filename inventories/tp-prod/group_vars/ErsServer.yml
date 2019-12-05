@@ -1,0 +1,5 @@
+name: ErsServer
+id: 445
+description: 檢查檢驗報告 Grails 後端 Server project
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/ErsServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/ErsServer

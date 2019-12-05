@@ -1,0 +1,5 @@
+name: LisClient
+id: 421
+description: 檢驗管理 Client migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/LisClient.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/LisClient

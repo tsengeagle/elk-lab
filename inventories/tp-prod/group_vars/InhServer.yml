@@ -1,0 +1,5 @@
+name: InhServer
+id: 386
+description: 住院申報 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/InhServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/InhServer

@@ -1,0 +1,5 @@
+name: MisServer
+id: 397
+description: Mis庫存中介及Cris中介 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/MisServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/MisServer

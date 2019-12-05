@@ -1,0 +1,5 @@
+name: EpayappServer
+id: 435
+description: 醫指付API Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/EpayappServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/EpayappServer

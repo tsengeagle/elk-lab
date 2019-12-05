@@ -1,0 +1,5 @@
+name: LisServer
+id: 336
+description: 檢驗管理 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/LisServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/LisServer

@@ -1,0 +1,5 @@
+name: NisServer
+id: 413
+description: 護理資訊 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/NisServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/NisServer

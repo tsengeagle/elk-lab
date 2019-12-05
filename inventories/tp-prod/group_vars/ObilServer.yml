@@ -1,0 +1,5 @@
+name: ObilServer
+id: 328
+description: 門診帳務 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/ObilServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/ObilServer

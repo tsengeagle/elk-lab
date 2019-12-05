@@ -1,0 +1,5 @@
+name: MccServer
+id: 335
+description: 醫美中心 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/MccServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/MccServer

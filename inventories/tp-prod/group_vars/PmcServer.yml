@@ -1,0 +1,5 @@
+name: PmcServer
+id: 334
+description: 預防醫學 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/PmcServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/PmcServer

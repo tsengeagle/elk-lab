@@ -1,0 +1,5 @@
+name: GmsServer
+id: 412
+description: 醫療庶務管理 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/GmsServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/GmsServer

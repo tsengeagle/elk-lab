@@ -1,0 +1,5 @@
+name: ApyServer
+id: 339
+description: 事前審查 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/ApyServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/ApyServer

@@ -1,0 +1,5 @@
+name: SecServer
+id: 390
+description: 權限管理 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/SecServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/SecServer

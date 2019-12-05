@@ -1,0 +1,5 @@
+name: MagServer
+id: 382
+description: 經營管理報表 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/MagServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/MagServer

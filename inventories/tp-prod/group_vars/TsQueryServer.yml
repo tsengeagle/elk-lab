@@ -1,0 +1,5 @@
+name: TsQueryServer
+id: 436
+description: 簽章取時戳 Server migration
+ssh_url_to_repo: git@gitlab.tzuchi-healthcare.org.tw:tzuchi_his_source_grp/TsQueryServer.git
+web_url: http://gitlab.tzuchi-healthcare.org.tw/tzuchi_his_source_grp/TsQueryServer
