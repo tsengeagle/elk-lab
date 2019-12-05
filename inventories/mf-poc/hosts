@@ -17,5 +17,5 @@ elk-node1
 elk-node1
 elk-node2
 
-[linux-ap-instance]
+[linux-ap-vm]
 SecServer

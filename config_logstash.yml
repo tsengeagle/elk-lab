@@ -1,12 +1,18 @@
 - hosts: logstash
   become: yes
   tasks:
-    - name: copy config
+    - name: copy logstash config
       copy:
-        src: templates/load_catalina_from_file.conf
-        dest: /etc/logstash/conf.d/load_catalina_from_file.conf
+        src: templates/logstash.yml
+        dest: /etc/logstash/logstash.yml
+
+    - name: copy pipeline config
+      copy:
+        src: templates/backend_process_log.conf
+        dest: /etc/logstash/conf.d/backend_process_log.conf
 
     - name: restart logstash
       service:
         name: logstash
         state: restarted
+        enabled: yes

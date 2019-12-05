@@ -1,13 +1,5 @@
-- hosts: linux-ap-instance
+- hosts: linux-ap-vm
   tasks:
-  - name: 組config參數
-    set_fact:
-      path: "{{ name }}"
-    when: path is not defined
-
-  - debug:
-      msg: "{{ ap_root }}/{{ path }}"
-
   - name: copy filebeat
     copy:
       src: files/filebeat-7.3.0-x86_64.rpm
@@ -16,12 +8,4 @@
   - name: install filebeat and tomcat
     yum:
       name: filebeat-7.3.0-x86_64.rpm
-    become: yes
-
-  - name: config filebeat
-
-  - name: start filebeat
-    service:
-      name: filebeat
-      state: started
     become: yes

@@ -15,22 +15,21 @@ filebeat.inputs:
 
   - type: log
     paths:
-      - /home/tomcat/server/**/*gc*
+      - /home/tomcat/server/MyServer/**/*gc.log*
     ignore_older: 24h
     fields:
       log_type: backend_gc_log
 
   - type: log
     paths:
-      - /home/tomcat/server/**/*access*
+      - /home/tomcat/server/**/*access_log*
     ignore_older: 24h
     fields:
       log_type: backend_access_log
-    exclude_lines: ['^10.2.145.1','^10.2.105.22'] #排除監控系統的存取紀錄
+    exclude_lines: ['^10.2.145.1','(^10.2.105.22)(.*)(HEAD)'] #排除監控系統的存取紀錄
 
 fields:
-  env: lab
-  log_source: tomcat_batch_import
+  env: tp-prod
 
 output.logstash:
-  hosts: ["logstash:9601"]
+  hosts: ["logstash:9602"]

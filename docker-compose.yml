@@ -50,6 +50,7 @@ services:
     volumes:
       - ./templates/filebeat.yml:/usr/share/filebeat/filebeat.yml
       - ./container/lab_data/server:/home/tomcat/server
+      - ./templates/modules.d:/usr/share/filebeat/modules.d
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.3.0

@@ -1,3 +1,4 @@
+node.name: mf_logstash
 path.data: /var/lib/logstash
 http.host: "0.0.0.0"
 http.port: 9600-9700

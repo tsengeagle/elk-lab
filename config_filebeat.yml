@@ -1,0 +1,13 @@
+- hosts: linux-ap-vm
+  become: yes
+  tasks:
+  - name: copy filebeat.yml
+    copy:
+      src: templates/filebeat.yml
+      dest: /etc/filebeat/filebeat.yml
+
+  - name: 重啟filebeat
+    service:
+      name: filebeat
+      state: restarted
+      enabled: yes
