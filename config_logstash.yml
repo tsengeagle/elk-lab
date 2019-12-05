@@ -1,0 +1,12 @@
+- hosts: logstash
+  become: yes
+  tasks:
+    - name: copy config
+      copy:
+        src: templates/load_catalina_from_file.conf
+        dest: /etc/logstash/conf.d/load_catalina_from_file.conf
+
+    - name: restart logstash
+      service:
+        name: logstash
+        state: restarted

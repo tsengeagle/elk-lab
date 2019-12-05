@@ -2,7 +2,7 @@ version: '3'
 services:
   cerebro:
     image: lmenezes/cerebro:0.8.3
-    depends_on: 
+    depends_on:
       - elasticsearch
       - elasticsearch2
     networks:
@@ -14,7 +14,7 @@ services:
 
   kibana:
     image: docker.elastic.co/kibana/kibana:7.3.0
-    depends_on: 
+    depends_on:
       - elasticsearch
       - elasticsearch2
     networks:
@@ -37,12 +37,22 @@ services:
     ports:
       - 9600:9600
     volumes:
-      - ./container/config/logstash_pipeline_config/lab_data.conf:/usr/share/logstash/pipeline/lab_data.conf
-      - ./container/lab_data/movies.csv:/usr/share/logstash/lab_data/movies.csv
+      - ./templates/backend_process_log.conf:/usr/share/logstash/pipeline/backend_process_log.conf
+
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.3.0
+    depends_on:
+      - logstash
+      - elasticsearch
+      - elasticsearch2
+    networks:
+      - elk
+    volumes:
+      - ./templates/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./container/lab_data/server:/home/tomcat/server
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.3.0
-    container_name: lab_1
     networks:
       - elk
     ports:
@@ -50,11 +60,11 @@ services:
       - 9300:9300
     environment:
       - cluster.name=lab
-      - node.name=lab_1
+      - node.name=elasticsearch
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
-      - discovery.seed_hosts=lab_1,lab_2
-      - cluster.initial_master_nodes=lab_1,lab_2
+      - discovery.seed_hosts=elasticsearch,elasticsearch2
+      - cluster.initial_master_nodes=elasticsearch,elasticsearch2
     volumes:
       - node1_data:/usr/share/elasticsearch/data
     ulimits:
@@ -64,16 +74,15 @@ services:
 
   elasticsearch2:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.3.0
-    container_name: lab_2
     networks:
       - elk
     environment:
       - cluster.name=lab
-      - node.name=lab_2
+      - node.name=elasticsearch2
       - bootstrap.memory_lock=true
       - "ES_JAVA_OPTS=-Xms1024m -Xmx1024m"
-      - discovery.seed_hosts=lab_1,lab_2
-      - cluster.initial_master_nodes=lab_1,lab_2
+      - discovery.seed_hosts=elasticsearch,elasticsearch2
+      - cluster.initial_master_nodes=elasticsearch,elasticsearch2
     volumes:
       - node2_data:/usr/share/elasticsearch/data
     ulimits:
@@ -88,7 +97,7 @@ volumes:
       type: none
       device: $PWD/container/data/node1
       o: bind
-      
+
   node2_data:
     driver: local
     driver_opts:
