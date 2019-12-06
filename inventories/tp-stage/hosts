@@ -1,0 +1,62 @@
+
+mf-monitor ansible_host=10.2.145.1
+
+TzuchiServer ansible_host=10.2.105.73
+
+tp-stage-apl01 ansible_host=10.2.105.71 vip=10.2.105.71
+tp-stage-apl02 ansible_host=10.2.105.72 vip=10.2.105.72
+tp-stage-apl03 ansible_host=10.2.105.73 vip=10.2.105.73
+tp-stage-apl04 ansible_host=10.2.105.74 vip=10.2.105.74
+tp-stage-apl05 ansible_host=10.2.105.75 vip=10.2.105.75
+tp-stage-apl06 ansible_host=10.2.105.76 vip=10.2.105.76
+tp-stage-apl07 ansible_host=10.2.105.77 vip=10.2.105.77
+tp-stage-apl08 ansible_host=10.2.105.78 vip=10.2.105.78
+tp-stage-apl09 ansible_host=10.2.105.79 vip=10.2.105.79
+tp-stage-apl10 ansible_host=10.2.105.80 vip=10.2.105.80
+tp-stage-apl11 ansible_host=10.2.105.81 vip=10.2.105.81
+tp-stage-apl12 ansible_host=10.2.105.82 vip=10.2.105.82
+tp-stage-apw01 ansible_host=10.2.105.83 vip=10.2.105.83
+tp-stage-apw02 ansible_host=10.2.105.84 vip=10.2.105.84
+
+tp-stage-hrp ansible_host=10.2.105.85 vip=10.2.105.85
+
+tp-stage-his-db ansible_host=10.2.105.90
+tp-stage-rpt-db ansible_host=10.2.105.91
+
+[linux-vm]
+tp-stage-nas
+tp-stage-apl01
+tp-stage-apl02
+tp-stage-apl03
+tp-stage-apl04
+tp-stage-apl05
+tp-stage-apl06
+tp-stage-apl07
+tp-stage-apl08
+tp-stage-apl09
+tp-stage-apl10
+tp-stage-apl11
+tp-stage-apl12
+
+[windows-vm]
+tp-stage-apw01
+tp-stage-apw02
+
+[linux-ap-vm]
+tp-stage-apl01
+tp-stage-apl02
+tp-stage-apl03
+tp-stage-apl04
+tp-stage-apl05
+tp-stage-apl06
+tp-stage-apl07
+tp-stage-apl08
+tp-stage-apl09
+tp-stage-apl10
+tp-stage-apl11
+tp-stage-apl12
+
+[his-portal]
+TzuchiServer
+
+

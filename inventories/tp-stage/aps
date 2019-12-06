@@ -1,0 +1,137 @@
+mf-monitor          ansible_host=10.2.145.1
+tp-stage-nas        ansible_host=10.2.105.70
+
+ComServer	        ansible_host=10.2.105.71	port=8180
+MisServer	        ansible_host=10.2.105.71	port=8280
+emr	                ansible_host=10.2.105.71	port=8380
+ObsServer	        ansible_host=10.2.105.71	port=8480
+CapServer	        ansible_host=10.2.105.71	port=8580
+IpdPatMgmtServer	ansible_host=10.2.105.72	port=8180
+EmrQueryServer	    ansible_host=10.2.105.72	port=8280
+CommServer	        ansible_host=10.2.105.72	port=8380
+DocServer	        ansible_host=10.2.105.72	port=8480
+NoteWeb	            ansible_host=10.2.105.72	port=8580
+SecServer	        ansible_host=10.2.105.73	port=8180
+TzuchiServer	    ansible_host=10.2.105.73	port=8180
+EventServer	        ansible_host=10.2.105.73	port=8280
+HcaEmrServer	    ansible_host=10.2.105.73	port=8380
+TzuchiHcaemr	    ansible_host=10.2.105.73	port=8380
+PmcServer	        ansible_host=10.2.105.73	port=8480
+AdtServer	        ansible_host=10.2.105.74	port=8180
+IbilServer	        ansible_host=10.2.105.74	port=8280
+IccServer	        ansible_host=10.2.105.74	port=8380
+DrgServer	        ansible_host=10.2.105.74	port=8480
+ExamServer	        ansible_host=10.2.105.75	port=8180
+RefServer	        ansible_host=10.2.105.75	port=8280
+RegServer	        ansible_host=10.2.105.75	port=8380
+MccServer	        ansible_host=10.2.105.75	port=8480
+RehServer	        ansible_host=10.2.105.75	port=8580
+BlodServer	        ansible_host=10.2.105.76	port=8180
+GmsServer	        ansible_host=10.2.105.76	port=8280
+DietServer	        ansible_host=10.2.105.76	port=8380
+OrServer	        ansible_host=10.2.105.76	port=8480
+QnaServer	        ansible_host=10.2.105.76	port=8580
+NisServer	        ansible_host=10.2.105.77	port=8180
+OerPatMgmtServer	ansible_host=10.2.105.77	port=8280
+CpoeServer	        ansible_host=10.2.105.77	port=8380
+VaccServer	        ansible_host=10.2.105.77	port=8480
+HmsServer	        ansible_host=10.2.105.77	port=8580
+PhmServer	        ansible_host=10.2.105.78	port=8180
+RtServer	        ansible_host=10.2.105.78	port=8280
+CodServer	        ansible_host=10.2.105.78	port=8380
+XrayServer	        ansible_host=10.2.105.78	port=8480
+InhServer	        ansible_host=10.2.105.78	port=8580
+HmoServer	        ansible_host=10.2.105.79	port=8180
+MrmServer	        ansible_host=10.2.105.79	port=8280
+AppServer	        ansible_host=10.2.105.79	port=8380
+ObilServer	        ansible_host=10.2.105.79	port=8480
+OnhServer	        ansible_host=10.2.105.79	port=8580
+ApyServer	        ansible_host=10.2.105.80	port=8180
+PahoServer	        ansible_host=10.2.105.80	port=8280
+LisServer	        ansible_host=10.2.105.80	port=8380
+PhnServer	        ansible_host=10.2.105.80	port=8480
+MmsServer	        ansible_host=10.2.105.80	port=8580
+JobServer	        ansible_host=10.2.105.81	port=8180
+FileServer	        ansible_host=10.2.105.81	port=8280
+EpayappServer	    ansible_host=10.2.105.82	port=8180
+hunspell	        ansible_host=10.2.105.82	port=8280
+ErsServer	        ansible_host=10.2.105.82	port=8380
+EaiServer	        ansible_host=10.2.105.82	port=8480
+WinReportServer	    ansible_host=10.2.105.83	port=8080
+WinGmsServer	    ansible_host=10.2.105.83	port=8180
+WinCapServer	    ansible_host=10.2.105.83	port=8280
+WinHmsServer	    ansible_host=10.2.105.83	port=8380
+WinInhServer	    ansible_host=10.2.105.84	port=8180
+WinOnhServer	    ansible_host=10.2.105.84	port=8280
+WinAppServer	    ansible_host=10.2.105.84	port=8380
+WinTsQueryServer	ansible_host=10.2.105.84	port=8440
+
+[portal]
+TzuchiServer
+TzuchiHcaemr
+
+[linux-ap-instance]
+ComServer	        
+MisServer	        
+emr	                
+ObsServer	        
+CapServer	        
+IpdPatMgmtServer	
+EmrQueryServer	    
+CommServer	        
+DocServer	        
+NoteWeb	            
+SecServer	        
+EventServer	        
+HcaEmrServer	    
+PmcServer	        
+AdtServer	        
+IbilServer	        
+IccServer	        
+DrgServer	        
+ExamServer	        
+RefServer	        
+RegServer	        
+MccServer	        
+RehServer	        
+BlodServer	        
+GmsServer	        
+DietServer	        
+OrServer	        
+QnaServer	        
+NisServer	        
+OerPatMgmtServer	
+CpoeServer	        
+VaccServer	        
+HmsServer	        
+PhmServer	        
+RtServer	        
+CodServer	        
+XrayServer	        
+InhServer	        
+HmoServer	        
+MrmServer	        
+AppServer	        
+ObilServer	        
+OnhServer	        
+ApyServer	        
+PahoServer	        
+LisServer	        
+PhnServer	        
+MmsServer	        
+JobServer	        
+FileServer	        
+EpayappServer	    
+hunspell	        
+ErsServer	        
+EaiServer	        
+
+[windows-ap-instance]
+WinReportServer	    
+WinGmsServer	    
+WinCapServer	    
+WinHmsServer	    
+WinInhServer	    
+WinOnhServer	    
+WinAppServer	    
+WinTsQueryServer	

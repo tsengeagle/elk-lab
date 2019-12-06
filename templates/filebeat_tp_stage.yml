@@ -1,0 +1,20 @@
+filebeat.config:
+  modules:
+    path: ${path.config}/modules.d/*.yml
+    reload.enabled: false
+
+filebeat.inputs:
+  - type: log
+    paths:
+      - /home/tomcat/server/**/*.out
+    fields:
+      log_type: backend_process_log
+    multiline.pattern: '^[[:space:]]+(at|\.{3})\b|^Caused by:'
+    multiline.negate: false
+    multiline.match: after
+
+fields:
+  env: tp-stage
+
+output.logstash:
+  hosts: ["10.2.145.16:9601"]

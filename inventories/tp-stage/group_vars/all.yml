@@ -1,0 +1,39 @@
+package_source: "http://10.2.145.150:8081/artifactory/his5/package"
+java: "java-1.8.0-openjdk-1.8.0.161-2.b14.el7.x86_64.rpm"
+tomcat: "apache-tomcat-8.0.39.tar.gz"
+java_agent: "jmx_prometheus_javaagent-0.3.1.jar"
+
+min_memory: 3000
+max_memory: 3000
+ap_environment: tp-stage
+ap_root: "/home/tomcat/server"
+
+release_repo: "http://10.2.145.150:8081/artifactory"
+release_path: "his5/war"
+
+ntp_server: tpntp.tzuchi.com.tw
+
+yum_proxy: yes
+
+special_server:
+  - name: hrpserver
+    ip: 10.2.105.85
+  - name: TzuchiServer
+    ip: 10.2.105.73
+  - name: FileServer
+    ip: 10.2.105.81
+  - name: ReportServer
+    ip: 10.2.105.83
+  - name: APL03
+    ip: 10.2.105.73
+  - name: APL11
+    ip: 10.2.105.81
+  - name: APW01
+    ip: 10.2.105.83
+  - name: his-db
+    ip: 10.2.105.90
+  - name: rpt-db
+    ip: 10.2.105.91
+
+
+file_server: 10.2.105.81
