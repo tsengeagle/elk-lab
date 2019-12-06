@@ -1,0 +1,28 @@
+- type: log
+  paths:
+    - /home/tomcat/server/MyServer/logs/catalina.out
+  fields:
+    module_name: MyServer1
+    log_type: process
+  tags: ["MyServer1","Lab","catalina_out"]
+  multiline.pattern: '^[[:space:]]+(at|\.{3})\b|^Caused by:'
+  multiline.negate: false
+  multiline.match: after
+
+- type: log
+  paths:
+    - /home/tomcat/server/MyServer/logs/*gc.log*
+  ignore_older: 24h
+  fields:
+    module_name: MyServer1
+    log_type: gc
+  tags: ["MyServer1","Lab","gc"]
+
+- type: log
+  paths:
+    - /home/tomcat/server/MyServer/logs/*access_log*
+  ignore_older: 24h
+  fields:
+    module_name: MyServer1
+    log_type: access
+  tags: ["MyServer1","Lab","access"]

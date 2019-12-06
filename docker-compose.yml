@@ -37,7 +37,7 @@ services:
     ports:
       - 9600:9600
     volumes:
-      - ./templates/backend_process_log.conf:/usr/share/logstash/pipeline/backend_process_log.conf
+      - ./templates/docker/backend_process_log.conf:/usr/share/logstash/pipeline/backend_process_log.conf
 
   filebeat:
     image: docker.elastic.co/beats/filebeat:7.3.0
@@ -48,9 +48,9 @@ services:
     networks:
       - elk
     volumes:
-      - ./templates/filebeat.yml:/usr/share/filebeat/filebeat.yml
       - ./container/lab_data/server:/home/tomcat/server
-      - ./templates/modules.d:/usr/share/filebeat/modules.d
+      - ./templates/docker/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./templates/docker/filebeat_MyServer.yml:/usr/share/filebeat/inputs.d/filebeat_MyServer.yml
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.3.0

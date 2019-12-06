@@ -1,0 +1,12 @@
+- hosts: localhost
+  tasks:
+    - name: prepare variable
+      set_fact:
+        virtual_server: MyServer
+        service_name: MyServer1
+        env_name: Lab
+
+    - name: template input config
+      template:
+        src: filebeat_input_template.yml
+        dest: filebeat_input_lab.yml

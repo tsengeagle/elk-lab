@@ -1,9 +1,15 @@
 - hosts: linux-ap-vm
   become: yes
   tasks:
+  - name: prepare variable
+    set_fact:
+      environment: "tp-prod"
+      output_host: 10.2.145.16
+      output_port: 9602
+
   - name: copy filebeat.yml
-    copy:
-      src: templates/filebeat.yml
+    template:
+      src: filebeat_template.yml
       dest: /etc/filebeat/filebeat.yml
 
   - name: 重啟filebeat

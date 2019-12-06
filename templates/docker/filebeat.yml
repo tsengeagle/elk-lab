@@ -7,8 +7,7 @@ filebeat.config:
     reload.enabled: true
 
 fields:
-  env: {{ environment }}
+  env: lab
 
 output.logstash:
-  hosts: ["{{ output_host  }}:{{ output_port }}"]
-
+  hosts: ["logstash:9602"]

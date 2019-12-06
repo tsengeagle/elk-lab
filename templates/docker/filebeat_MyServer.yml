@@ -1,0 +1,29 @@
+- type: log
+  paths:
+    - /home/tomcat/server/MyServer/logs/catalina.out
+  fields:
+    module_name: MyServer
+    log_type: process
+  tags: ["MyServer","Lab","backend_process"]
+  multiline.pattern: '^[[:space:]]+(at|\.{3})\b|^Caused by:'
+  multiline.negate: false
+  multiline.match: after
+
+- type: log
+  paths:
+    - /home/tomcat/server/MyServer/logs/*gc.log*
+  ignore_older: 24h
+  fields:
+    module_name: MyServer
+    log_type: gc
+  tags: ["MyServer","Lab","backend_gc"]
+
+- type: log
+  paths:
+    - /home/tomcat/server/MyServer/logs/*access_log*
+  ignore_older: 24h
+  fields:
+    module_name: MyServer
+    log_type: access
+  tags: ["MyServer","Lab","backend_access"]
+  exclude_lines: ['^10.2.145.1','(^10.2.105.22)(.*)(HEAD)'] #排除監控系統的存取紀錄
