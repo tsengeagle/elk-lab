@@ -1,0 +1,146 @@
+tp-intt-apl01 ansible_host=10.2.127.101
+tp-intt-apl02 ansible_host=10.2.127.102
+tp-intt-apl03 ansible_host=10.2.127.103
+tp-intt-apl04 ansible_host=10.2.127.104
+tp-intt-apl05 ansible_host=10.2.127.105
+tp-intt-apl06 ansible_host=10.2.127.106
+tp-intt-apl07 ansible_host=10.2.127.107
+tp-intt-apl08 ansible_host=10.2.127.108
+tp-intt-apl09 ansible_host=10.2.127.109
+tp-intt-apl10 ansible_host=10.2.127.110
+tp-intt-apl11 ansible_host=10.2.127.111
+tp-intt-apl12 ansible_host=10.2.127.112
+
+TzuchiServer ansible_host=10.2.127.103 path=i8180 war=TzuchiServer port=8180 index_page=Main.html
+TzuchiHcaemr ansible_host=10.2.127.103 path=i8380 war=TzuchiHcaemr port=8380 index_page=MainHca.html
+
+ComServer ansible_host=10.2.127.101 path=i8180 war=ComServer port=8180 service_type=jre
+MisServer ansible_host=10.2.127.101 path=i8280 war=MisServer port=8280 service_type=jre
+ObsServer ansible_host=10.2.127.101 path=i8380 war=ObsServer port=8380 service_type=jre
+CapServer ansible_host=10.2.127.101 path=i8480 war=CapServer port=8480 service_type=jre
+IpdPatMgmtServer ansible_host=10.2.127.102 path=i8180 war=IpdPatMgmtServer port=8180
+EmrQueryServer ansible_host=10.2.127.102 path=i8280 war=EmrQueryServer port=8280
+CommServer ansible_host=10.2.127.102 path=i8380 war=CommServer port=8380
+DocServer ansible_host=10.2.127.102 path=i8480 war=DocServer port=8480
+SecServer ansible_host=10.2.127.103 path=i8180 war=SecServer port=8180
+EventServer ansible_host=10.2.127.103 path=i8280 war=EventServer port=8280
+HcaEmrServer ansible_host=10.2.127.103 path=i8380 war=HcaEmrServer port=8380
+PmcServer ansible_host=10.2.127.103 path=i8480 war=PmcServer port=8480
+AdtServer ansible_host=10.2.127.104 path=i8180 war=AdtServer port=8180
+IbilServer ansible_host=10.2.127.104 path=i8280 war=IbilServer port=8280
+IccServer ansible_host=10.2.127.104 path=i8380 war=IccServer port=8380
+DrgServer ansible_host=10.2.127.104 path=i8480 war=DrgServer port=8480
+ExamServer ansible_host=10.2.127.105 path=i8180 war=ExamServer port=8180
+RegServer ansible_host=10.2.127.105 path=i8280 war=RegServer port=8280
+MccServer ansible_host=10.2.127.105 path=i8380 war=MccServer port=8380
+RehServer ansible_host=10.2.127.105 path=i8480 war=RehServer port=8480
+BlodServer ansible_host=10.2.127.106 path=i8180 war=BlodServer port=8180
+DietServer ansible_host=10.2.127.106 path=i8280 war=DietServer port=8280
+QnaServer ansible_host=10.2.127.106 path=i8380 war=QnaServer port=8380
+HmsServer ansible_host=10.2.127.106 path=i8480 war=HmsServer port=8480
+NisServer ansible_host=10.2.127.107 path=i8180 war=NisServer port=8180
+OerPatMgmtServer ansible_host=10.2.127.107 path=i8280 war=OerPatMgmtServer port=8280
+CpoeServer ansible_host=10.2.127.107 path=i8380 war=CpoeServer port=8380
+PhmServer ansible_host=10.2.127.108 path=i8180 war=PhmServer port=8180
+CodServer ansible_host=10.2.127.108 path=i8280 war=CodServer port=8280
+XrayServer ansible_host=10.2.127.108 path=i8380 war=XrayServer port=8380
+InhServer ansible_host=10.2.127.108 path=i8480 war=InhServer port=8480
+HmoServer ansible_host=10.2.127.109 path=i8180 war=HmoServer port=8180
+AppServer ansible_host=10.2.127.109 path=i8280 war=AppServer port=8280
+ObilServer ansible_host=10.2.127.109 path=i8380 war=ObilServer port=8380
+OnhServer ansible_host=10.2.127.109 path=i8480 war=OnhServer port=8480
+ApyServer ansible_host=10.2.127.110 path=i8180 war=ApyServer port=8180
+LisServer ansible_host=10.2.127.110 path=i8280 war=LisServer port=8280
+PhnServer ansible_host=10.2.127.110 path=i8380 war=PhnServer port=8380
+MmsServer ansible_host=10.2.127.110 path=i8480 war=MmsServer port=8480
+JobServer ansible_host=10.2.127.111 path=i8180 war=JobServer port=8180 min_memory=3000 max_memory=3000
+FileServer ansible_host=10.2.127.111 path=i8480 war=FileServer port=8480 min_memory=3000 max_memory=3000
+EpayappServer ansible_host=10.2.127.112 path=i8180 war=EpayappServer port=8180 min_memory=3000 max_memory=3000
+hunspell ansible_host=10.2.127.112 path=i8280 war=hunspell port=8280 min_memory=2000 max_memory=2000
+ErsServer ansible_host=10.2.127.112 path=i8380 war=ErsServer port=8380
+EaiServer ansible_host=10.2.127.112 path=i8480 war=EaiServer port=8480
+
+WinReportServer ansible_host=10.2.127.113 path=i8080 war=ReportServer port=8080
+WinInhServer ansible_host=10.2.127.114 path=i8180 war=InhServer port=8180
+WinOnhServer ansible_host=10.2.127.114 path=i8280 war=OnhServer port=8280
+WinAppServer ansible_host=10.2.127.114 path=i8380 war=AppServer port=8380
+WinTsQueryServer ansible_host=10.2.127.114 path=i8440 war=TsQueryServer port=8440
+WinGmsServer ansible_host=10.2.127.114 path=i8480 war=GmsServer port=8480
+WinCapServer ansible_host=10.2.127.114 path=i8580 war=CapServer port=8580
+WinHmsServer ansible_host=10.2.127.114 path=i8580 war=HmsServer port=8580
+
+
+[linux-ap-vm]
+tp-intt-apl01
+tp-intt-apl02
+tp-intt-apl03
+tp-intt-apl04
+tp-intt-apl05
+tp-intt-apl06
+tp-intt-apl07
+tp-intt-apl08
+tp-intt-apl09
+tp-intt-apl10
+tp-intt-apl11
+tp-intt-apl12
+
+[portal]
+TzuchiServer
+TzuchiHcaemr
+
+[linux-ap-instance]
+ComServer
+MisServer
+ObsServer
+CapServer
+IpdPatMgmtServer
+EmrQueryServer
+CommServer
+DocServer
+SecServer
+EventServer
+HcaEmrServer
+PmcServer
+AdtServer
+IbilServer
+IccServer
+DrgServer
+ExamServer
+RegServer
+MccServer
+RehServer
+BlodServer
+DietServer
+QnaServer
+HmsServer
+NisServer
+OerPatMgmtServer
+CpoeServer
+PhmServer
+CodServer
+XrayServer
+InhServer
+HmoServer
+AppServer
+ObilServer
+OnhServer
+ApyServer
+LisServer
+PhnServer
+MmsServer
+JobServer
+FileServer
+EpayappServer
+hunspell
+ErsServer
+EaiServer
+
+[windows-ap-instance]
+WinReportServer
+WinInhServer
+WinOnhServer
+WinAppServer
+WinTsQueryServer
+WinGmsServer
+WinCapServer
+WinHmsServer

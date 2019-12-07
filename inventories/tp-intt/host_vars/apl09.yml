@@ -1,0 +1,12 @@
+---
+ap_instances:
+  - name: i8180
+    port_prefix: 100
+  - name: i8280
+    port_prefix: 200
+  - name: i8380
+    port_prefix: 300
+  - name: i8480
+    port_prefix: 400
+  - name: i8580
+    port_prefix: 500

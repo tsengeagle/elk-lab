@@ -1,28 +1,31 @@
 - type: log
   paths:
-    - /home/tomcat/server/{{ virtual_server }}/logs/catalina.out
+    - /home/tomcat/server/{{ path }}/logs/catalina.out
   fields:
-    module_name: {{ service_name }}
+    service_name: {{ service_name }}
+    server_name: {{ virtual_server }}
     log_type: process
-  tags: ["{{ service_name }}","{{ env_name }}","catalina_out"]
+  tags: ["{{ virtual_server }}","{{ service_name }}"]
   multiline.pattern: '^[[:space:]]+(at|\.{3})\b|^Caused by:'
   multiline.negate: false
   multiline.match: after
 
 - type: log
   paths:
-    - /home/tomcat/server/{{ virtual_server }}/logs/*gc.log*
+    - /home/tomcat/server/{{ path }}/logs/*gc.log*
   ignore_older: 24h
   fields:
-    module_name: {{ service_name }}
+    service_name: {{ service_name }}
+    server_name: {{ virtual_server }}
     log_type: gc
-  tags: ["{{ service_name }}","{{ env_name }}","gc"]
+  tags: ["{{ virtual_server }}","{{ service_name }}"]
 
 - type: log
   paths:
-    - /home/tomcat/server/{{ virtual_server }}/logs/*access_log*
+    - /home/tomcat/server/{{ path }}/logs/*access_log*
   ignore_older: 24h
   fields:
-    module_name: {{ service_name }}
+    service_name: {{ service_name }}
+    server_name: {{ virtual_server }}
     log_type: access
-  tags: ["{{ service_name }}","{{ env_name }}","access"]
+  tags: ["{{ virtual_server }}","{{ service_name }}"]
