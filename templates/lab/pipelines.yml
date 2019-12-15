@@ -1,0 +1,4 @@
+- pipeline.id: catalina_out
+  path.config: /usr/share/logstash/pipeline/pipeline_process.conf
+- pipeline.id: tomcat_access
+  path.config: /usr/share/logstash/pipeline/pipeline_access.conf

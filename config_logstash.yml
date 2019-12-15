@@ -2,14 +2,25 @@
   become: yes
   tasks:
     - name: copy logstash config
-      copy:
+      template:
         src: templates/logstash.yml
         dest: /etc/logstash/logstash.yml
 
+    - name: findout pipeline config
+      find:
+        paths: /etc/logstash/conf.d
+      register: pipeline_result
+
+    - name: remove old pipeline config
+      file:
+        path: "{{ item.path }}"
+        state: absent
+      loop: "{{ pipeline_result.files }}"
+
     - name: copy pipeline config
-      copy:
-        src: templates/backend_process_log.conf
-        dest: /etc/logstash/conf.d/backend_process_log.conf
+      template:
+        src: templates/backend_log_template.conf
+        dest: /etc/logstash/conf.d/backend_log.conf
 
     - name: restart logstash
       service:

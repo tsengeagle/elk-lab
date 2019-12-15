@@ -15,7 +15,7 @@
       set_fact:
         virtual_server: "{{ name }}"
         service_name: "{{ inventory_hostname }}"
-        env_name: tp_prod
+        env_name: "{{ ap_environment }}"
         inputs_path: /etc/filebeat/inputs.d
 
     - name: make sure path exists

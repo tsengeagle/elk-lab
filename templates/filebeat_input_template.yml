@@ -5,8 +5,8 @@
     service_name: {{ service_name }}
     server_name: {{ virtual_server }}
     log_type: process
-  tags: ["{{ virtual_server }}","{{ service_name }}"]
-  multiline.pattern: '^[[:space:]]+(at|\.{3})\b|^Caused by:'
+  tags: ["{{ virtual_server }}","{{ service_name }}","process"]
+  multiline.pattern: '^[[:space:]]|^#|^[[:space:]]+(at|\.{3})\b|^Caused by:'
   multiline.negate: false
   multiline.match: after
 
@@ -18,7 +18,7 @@
     service_name: {{ service_name }}
     server_name: {{ virtual_server }}
     log_type: gc
-  tags: ["{{ virtual_server }}","{{ service_name }}"]
+  tags: ["{{ virtual_server }}","{{ service_name }}","gc"]
 
 - type: log
   paths:
@@ -28,4 +28,4 @@
     service_name: {{ service_name }}
     server_name: {{ virtual_server }}
     log_type: access
-  tags: ["{{ virtual_server }}","{{ service_name }}"]
+  tags: ["{{ virtual_server }}","{{ service_name }}","access"]

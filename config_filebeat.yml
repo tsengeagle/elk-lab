@@ -3,7 +3,7 @@
   tasks:
   - name: prepare variable
     set_fact:
-      env_name: "tp-intt"
+      env_name: "{{ ap_environment }}"
       output_host: 10.2.145.16
       output_port: 9602
 

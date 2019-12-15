@@ -6,6 +6,12 @@ filebeat.config:
     path: ${path.config}/inputs.d/*.yml
     reload.enabled: true
 
+filebeat.inputs:
+  - type: log
+    paths:
+      - /var/log/messages
+    tags: ["system_log"]
+
 fields:
   env: {{ env_name }}
 

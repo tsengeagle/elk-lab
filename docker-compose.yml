@@ -37,7 +37,10 @@ services:
     ports:
       - 9600:9600
     volumes:
-      - ./templates/docker/backend_process_log.conf:/usr/share/logstash/pipeline/backend_process_log.conf
+      - ./templates/docker/pipelines.yml:/usr/share/logstash/config/pipelines.yml
+      # - ./templates/docker/pipeline_process.conf:/usr/share/logstash/pipeline/pipeline_process.conf
+      # - ./templates/docker/pipeline_access.conf:/usr/share/logstash/pipeline/pipeline_access.conf
+      - ./templates/docker/pipeline_backend.conf:/usr/share/logstash/pipeline/pipeline_backend.conf
 
   filebeat:
     image: docker.elastic.co/beats/filebeat:7.3.0
