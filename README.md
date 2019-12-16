@@ -42,5 +42,6 @@ docker run --rm -it \
   -v "$(PWD)/templates/lab/pipeline_backend.conf:/usr/share/logstash/pipeline/pipeline_backend.conf" \
   -v "$(PWD)/templates/lab/catalina.out:/lab/catalina.out" \
   -v "$(PWD)/templates/lab/access_log.txt:/lab/access_log.txt" \
-docker.elastic.co/logstash/logstash:7.3.0 bash
+  -v "$(PWD)/templates/lab/messages.txt:/lab/messages.txt" \
+  docker.elastic.co/logstash/logstash:7.3.0 bash
 ```

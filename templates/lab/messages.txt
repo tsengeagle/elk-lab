@@ -1,0 +1,1 @@
+Dec 16 08:46:16 TP-STAGE-APL07 systemd-logind: Removed session 2111.
