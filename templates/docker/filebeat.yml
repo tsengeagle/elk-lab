@@ -9,7 +9,7 @@ filebeat.config:
 fields:
   env: lab
 
-tags: ["lab"]
+tags: ["lab", "help"]
 
 output.logstash:
   hosts: ["logstash:9602"]

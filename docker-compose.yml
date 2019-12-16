@@ -38,8 +38,6 @@ services:
       - 9600:9600
     volumes:
       - ./templates/docker/pipelines.yml:/usr/share/logstash/config/pipelines.yml
-      # - ./templates/docker/pipeline_process.conf:/usr/share/logstash/pipeline/pipeline_process.conf
-      # - ./templates/docker/pipeline_access.conf:/usr/share/logstash/pipeline/pipeline_access.conf
       - ./templates/docker/pipeline_backend.conf:/usr/share/logstash/pipeline/pipeline_backend.conf
 
   filebeat:

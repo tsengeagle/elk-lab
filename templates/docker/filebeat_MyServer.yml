@@ -4,7 +4,7 @@
   fields:
     module_name: MyServer
     log_type: process
-  tags: ["MyServer","backend_process"]
+  tags: ["MyServer","process"]
   multiline.pattern: '^[[:space:]]|^#|^[[:space:]]+(at|\.{3})\b|^Caused by:'
   multiline.negate: false
   multiline.match: after
@@ -12,17 +12,15 @@
 - type: log
   paths:
     - /home/tomcat/server/MyServer/logs/*gc.log*
-  ignore_older: 24h
   fields:
     module_name: MyServer
     log_type: gc
-  tags: ["MyServer","backend_gc"]
+  tags: ["MyServer","gc"]
 
 - type: log
   paths:
     - /home/tomcat/server/MyServer/logs/*access_log*
-  ignore_older: 24h
   fields:
     module_name: MyServer
     log_type: access
-  tags: ["MyServer","backend_access"]
+  tags: ["MyServer","access"]
