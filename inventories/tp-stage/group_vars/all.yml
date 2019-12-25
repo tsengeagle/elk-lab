@@ -37,3 +37,4 @@ special_server:
 
 
 file_server: 10.2.105.81
+win_service_dest: 'c:'

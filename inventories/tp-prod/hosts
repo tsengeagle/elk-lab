@@ -13,8 +13,6 @@ tp-prod-ha1-apl09 ansible_host=10.2.105.139 vip=10.2.105.119
 tp-prod-ha1-apl10 ansible_host=10.2.105.140 vip=10.2.105.110
 tp-prod-ha1-apl11 ansible_host=10.2.105.141 vip=10.2.105.121
 tp-prod-ha1-apl12 ansible_host=10.2.105.142 vip=10.2.105.122
-tp-prod-ha1-apw01 ansible_host=10.2.105.143 vip=10.2.105.123
-tp-prod-ha1-apw02 ansible_host=10.2.105.144 vip=10.2.105.124
 tp-prod-ha2-apl01 ansible_host=10.2.105.151 vip=10.2.105.111
 tp-prod-ha2-apl02 ansible_host=10.2.105.152 vip=10.2.105.112
 tp-prod-ha2-apl03 ansible_host=10.2.105.153 vip=10.2.105.113
@@ -27,8 +25,6 @@ tp-prod-ha2-apl09 ansible_host=10.2.105.159 vip=10.2.105.119
 tp-prod-ha2-apl10 ansible_host=10.2.105.160 vip=10.2.105.120
 tp-prod-ha2-apl11 ansible_host=10.2.105.161 vip=10.2.105.121
 tp-prod-ha2-apl12 ansible_host=10.2.105.162 vip=10.2.105.122
-tp-prod-ha2-apw01 ansible_host=10.2.105.163 vip=10.2.105.123
-tp-prod-ha2-apw02 ansible_host=10.2.105.164 vip=10.2.105.124
 
 tp-prod-ha3-apl01 ansible_host=10.2.105.145
 tp-prod-ha3-apl02 ansible_host=10.2.105.146
@@ -38,6 +34,13 @@ tp-prod-ha4-apl02 ansible_host=10.2.105.166
 tp-prod-ha4-apl03 ansible_host=10.2.105.167
 
 tp-prod-ha5-apl01 ansible_host=10.2.105.147
+
+tp-prod-ha1-apw01 ansible_host=10.2.105.143 vip=10.2.105.123
+tp-prod-ha1-apw02 ansible_host=10.2.105.144 vip=10.2.105.124
+tp-prod-ha2-apw01 ansible_host=10.2.105.163 vip=10.2.105.123
+tp-prod-ha2-apw02 ansible_host=10.2.105.164 vip=10.2.105.124
+tp-prod-ha3-apw01 ansible_host=10.2.105.150 vip=10.2.105.123
+tp-prod-ha4-apw01 ansible_host=10.2.105.170 vip=10.2.105.123
 
 [linux-ap-vm]
 tp-prod-ha1-apl01

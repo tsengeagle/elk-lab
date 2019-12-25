@@ -1,0 +1,52 @@
+- hosts: windows-vm
+  vars_files:
+    - windows_auth.yml
+  vars:
+    filebeat: filebeat-7.3.0-windows-x86_64
+    install_path: 'c:\beats'
+  tasks:
+    - name: 看是否已經安裝過
+      win_find:
+        paths: "{{ install_path }}"
+        file_type: directory
+      register: find_result
+      ignore_errors: yes
+    - debug:
+        msg: "{{ find_result }}"
+
+    - name: 反安裝filebeat
+      win_shell: '{{ item.path }}\uninstall-service-filebeat.ps1'
+      when: find_result.matched>0
+      loop: "{{ find_result.files }}"
+
+    - name: 刪除filebeat
+      win_file:
+        path: '{{ item.path }}'
+      when: find_result.matched>0
+      loop: "{{ find_result.files }}"
+
+    - name: 確保安裝路徑
+      win_file:
+        path: "{{ install_path }}"
+        state: directory
+
+    - debug:
+        msg: "{{ install_path }}"
+
+    - name: 複製filebeat
+      win_get_url:
+        url: 'http://10.2.145.150:8081/artifactory/his5/package/{{ filebeat }}.zip'
+        dest: '{{ install_path }}\{{ filebeat }}.zip'
+
+    - name: 解壓縮filebeat
+      win_unzip:
+        src: '{{ install_path }}\{{ filebeat }}.zip'
+        dest: '{{ install_path }}'
+        force: no
+      register: unzip_result
+
+    - debug:
+        msg: "{{ unzip_result }}"
+
+    - name: 安裝filebeat
+      win_shell: '{{ install_path }}\{{ filebeat }}\install-service-filebeat.ps1'

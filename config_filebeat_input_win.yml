@@ -1,0 +1,44 @@
+- hosts: windows-ap-instance
+  vars_files:
+    - windows_auth.yml
+  vars:
+    filebeat: filebeat-7.3.0-windows-x86_64
+    install_path: 'c:\beats'
+  tasks:
+# win_tomcat_instance: "Tomcat 8.0"
+# win_service_dest: 'c:\'
+    - name: setup name
+      set_fact:
+        name: "{{ inventory_hostname }}"
+      when: name is undefined
+
+    - name: set path
+      set_fact:
+        path: "{{ name }}"
+      when: path is undefined
+
+    - name: prepare variable
+      set_fact:
+        virtual_server: "{{ name }}"
+        service_name: "{{ inventory_hostname }}"
+        env_name: "{{ ap_environment }}"
+        inputs_path: '{{ install_path }}\{{ filebeat }}\inputs.d'
+        service_path: '{{ win_service_dest }}\{{ win_tomcat_instance }}_{{ port }}-{{ name }}'
+
+    - debug:
+        msg: '
+env: {{ env_name }}
+server and service: {{ virtual_server }}-{{ service_name }}
+path of inputs config: {{ inputs_path }}
+service path: {{ service_path }}
+        '
+
+    - name: make sure path exists
+      win_file:
+        path: "{{ inputs_path }}"
+        state: directory
+
+    - name: 放input
+      win_template:
+        src: filebeat_input_template_win.yml
+        dest: '{{ inputs_path }}\{{ virtual_server }}-{{ service_name }}.yml'

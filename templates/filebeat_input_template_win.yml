@@ -1,0 +1,38 @@
+- type: log
+  encoding: utf-8
+  paths:
+    - '{{ service_path }}\logs\*stdout*'
+  ignore_older: 24h
+  fields:
+    service_name: {{ service_name }}
+    server_name: {{ virtual_server }}
+    log_type: process
+  tags: ["{{ virtual_server }}","{{ service_name }}","process","stdout"]
+  multiline.pattern: '^[[:space:]]|^#|^[[:space:]]+(at|\.{3})\b|^Caused by:'
+  multiline.negate: false
+  multiline.match: after
+
+- type: log
+  encoding: utf-8
+  paths:
+    - '{{ service_path }}\logs\*stderr*'
+  ignore_older: 24h
+  fields:
+    service_name: {{ service_name }}
+    server_name: {{ virtual_server }}
+    log_type: process
+  tags: ["{{ virtual_server }}","{{ service_name }}","process","stderr"]
+  multiline.pattern: '^[[:space:]]|^#|^[[:space:]]+(at|\.{3})\b|^Caused by:'
+  multiline.negate: false
+  multiline.match: after
+
+- type: log
+  encoding: utf-8
+  paths:
+    - '{{ service_path }}\logs\*access_log*'
+  ignore_older: 24h
+  fields:
+    service_name: {{ service_name }}
+    server_name: {{ virtual_server }}
+    log_type: access
+  tags: ["{{ virtual_server }}","{{ service_name }}","access"]

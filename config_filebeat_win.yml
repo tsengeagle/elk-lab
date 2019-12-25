@@ -1,0 +1,33 @@
+- hosts: windows-vm
+  vars_files:
+    - windows_auth.yml
+  vars:
+    filebeat: filebeat-7.3.0-windows-x86_64
+    install_path: 'c:\beats'
+  tasks:
+  - name: prepare variable
+    set_fact:
+      env_name: "{{ ap_environment }}"
+      output_host: 10.2.145.16
+      output_port: 9602
+
+# win_tomcat: "apache-tomcat-8.5.43-windows-x64.zip"
+# win_tomcat_instance: "Tomcat 8.0"
+# win_service_dest: 'c:\'
+  - debug:
+      msg: "
+      {{ ap_environment }}\n
+      {{ win_service_dest }}\n
+      {{ win_tomcat_instance }}
+      "
+
+  - name: copy filebeat.yml
+    template:
+      src: filebeat_template.yml
+      dest: '{{ install_path }}\{{ filebeat }}\filebeat.yml'
+
+  - name: 重啟filebeat
+    win_service:
+      name: filebeat
+      state: restarted
+      start_mode: auto

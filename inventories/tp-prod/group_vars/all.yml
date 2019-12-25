@@ -65,7 +65,7 @@ win_node_exporter_dest: 'c:\{{ win_node_exporter }}'
 
 win_tomcat: "apache-tomcat-8.5.43-windows-x64.zip"
 win_tomcat_instance: "Tomcat 8.0"
-win_service_dest: 'c:\'
+win_service_dest: 'c:'
 
 netscaler:
   - 10.2.104.21
