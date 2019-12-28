@@ -1,0 +1,29 @@
+- hosts: FileServer
+  become: yes
+  tasks:
+    - name: setup name
+      set_fact:
+        name: "{{ inventory_hostname }}"
+      when: name is undefined
+
+    - name: set path
+      set_fact:
+        path: "{{ name }}"
+      when: path is undefined
+
+    - name: prepare variable
+      set_fact:
+        virtual_server: "{{ name }}"
+        service_name: "{{ inventory_hostname }}"
+        env_name: "{{ ap_environment }}"
+        inputs_path: /etc/filebeat/inputs.d
+
+    - name: make sure path exists
+      file:
+        path: "{{ inputs_path }}"
+        state: directory
+
+    - name: template input config
+      template:
+        src: filebeat_input_template_ftp.yml
+        dest: "{{ inputs_path }}/{{ service_name }}_ftp_input.yml"

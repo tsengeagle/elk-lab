@@ -1,0 +1,8 @@
+- type: log
+  paths:
+    - /var/log/vsftpd.log
+  fields:
+    service_name: {{ service_name }}
+    server_name: {{ virtual_server }}
+    log_type: ftp_log
+  tags: ["{{ virtual_server }}","{{ service_name }}","ftp_log"]
