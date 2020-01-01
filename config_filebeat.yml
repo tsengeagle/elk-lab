@@ -1,4 +1,4 @@
-- hosts: linux-ap-vm
+- hosts: linux-vm
   become: yes
   tasks:
   - name: prepare variable

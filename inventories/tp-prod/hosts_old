@@ -1,5 +1,5 @@
 monitoring ansible_host=10.2.145.1
-dns ansible_host=10.2.145.121
+logstash ansible_host=10.2.145.16 port=9601
 
 tp-prod-ha1-apl01 ansible_host=10.2.105.131 vip=10.2.105.111
 tp-prod-ha1-apl02 ansible_host=10.2.105.132 vip=10.2.105.112
@@ -13,8 +13,6 @@ tp-prod-ha1-apl09 ansible_host=10.2.105.139 vip=10.2.105.119
 tp-prod-ha1-apl10 ansible_host=10.2.105.140 vip=10.2.105.110
 tp-prod-ha1-apl11 ansible_host=10.2.105.141 vip=10.2.105.121
 tp-prod-ha1-apl12 ansible_host=10.2.105.142 vip=10.2.105.122
-tp-prod-ha1-apw01 ansible_host=10.2.105.143 vip=10.2.105.123
-tp-prod-ha1-apw02 ansible_host=10.2.105.144 vip=10.2.105.124
 tp-prod-ha2-apl01 ansible_host=10.2.105.151 vip=10.2.105.111
 tp-prod-ha2-apl02 ansible_host=10.2.105.152 vip=10.2.105.112
 tp-prod-ha2-apl03 ansible_host=10.2.105.153 vip=10.2.105.113
@@ -27,23 +25,24 @@ tp-prod-ha2-apl09 ansible_host=10.2.105.159 vip=10.2.105.119
 tp-prod-ha2-apl10 ansible_host=10.2.105.160 vip=10.2.105.120
 tp-prod-ha2-apl11 ansible_host=10.2.105.161 vip=10.2.105.121
 tp-prod-ha2-apl12 ansible_host=10.2.105.162 vip=10.2.105.122
-tp-prod-ha2-apw01 ansible_host=10.2.105.163 vip=10.2.105.123
-tp-prod-ha2-apw02 ansible_host=10.2.105.164 vip=10.2.105.124
 
 tp-prod-ha3-apl01 ansible_host=10.2.105.145
 tp-prod-ha3-apl02 ansible_host=10.2.105.146
-tp-prod-ha5-apl01 ansible_host=10.2.105.147
 tp-prod-ha3-apl03 ansible_host=10.2.105.148
-
 tp-prod-ha4-apl01 ansible_host=10.2.105.165
 tp-prod-ha4-apl02 ansible_host=10.2.105.166
 tp-prod-ha4-apl03 ansible_host=10.2.105.167
 
-tp-prod-ha5-apl02 ansible_host=10.2.105.168
-tp-prod-ha5-apl03 ansible_host=10.2.105.169
+tp-prod-ha5-apl01 ansible_host=10.2.105.147
 
+tp-prod-ha1-apw01 ansible_host=10.2.105.143 vip=10.2.105.123
+tp-prod-ha1-apw02 ansible_host=10.2.105.144 vip=10.2.105.124
+tp-prod-ha2-apw01 ansible_host=10.2.105.163 vip=10.2.105.123
+tp-prod-ha2-apw02 ansible_host=10.2.105.164 vip=10.2.105.124
+tp-prod-ha3-apw01 ansible_host=10.2.105.150 vip=10.2.105.123
+tp-prod-ha4-apw01 ansible_host=10.2.105.170 vip=10.2.105.123
 
-[linux-vm]
+[linux-ap-vm]
 tp-prod-ha1-apl01
 tp-prod-ha1-apl02
 tp-prod-ha1-apl03
@@ -75,9 +74,6 @@ tp-prod-ha4-apl02
 tp-prod-ha5-apl01
 tp-prod-ha3-apl03
 tp-prod-ha4-apl03
-
-tp-prod-ha5-apl02
-tp-prod-ha5-apl03
 
 [windows-vm]
 tp-prod-ha1-apw01
@@ -112,11 +108,8 @@ ComServer3 vip=10.2.105.111 ansible_host=10.2.105.146 port=8380 min_memory=12000
 ComServer4 vip=10.2.105.111 ansible_host=10.2.105.148 port=8280 min_memory=12000 max_memory=12000
 ComServer5 vip=10.2.105.111 ansible_host=10.2.105.167 port=8280 min_memory=12000 max_memory=12000
 ComServer6 vip=10.2.105.111 ansible_host=10.2.105.147 port=8280 min_memory=12000 max_memory=12000
-CpoeServer1 vip=10.2.105.117 ansible_host=10.2.105.137 port=8380 service_type=openjdk min_memory=10000 max_memory=10000
-CpoeServer2 vip=10.2.105.117 ansible_host=10.2.105.157 port=8380 service_type=openjdk min_memory=10000 max_memory=10000
-CpoeServer3 vip=10.2.105.117 ansible_host=10.2.105.168 port=8380 min_memory=10000 max_memory=10000
-CpoeServer4 vip=10.2.105.117 ansible_host=10.2.105.169 port=8380 min_memory=10000 max_memory=10000
-
+CpoeServer1 vip=10.2.105.117 ansible_host=10.2.105.137 port=8380 service_type=openjdk
+CpoeServer2 vip=10.2.105.117 ansible_host=10.2.105.157 port=8380 service_type=openjdk
 DietServer1 vip=10.2.105.116 ansible_host=10.2.105.136 port=8380 service_type=openjdk
 DietServer2 vip=10.2.105.116 ansible_host=10.2.105.156 port=8380 service_type=openjdk
 DocServer1 vip=10.2.105.112 ansible_host=10.2.105.132 port=8480 frontend=NoteWeb service_type=openjdk
@@ -168,13 +161,9 @@ MmsServer1 vip=10.2.105.120 ansible_host=10.2.105.140 port=8580 service_type=ope
 MmsServer2 vip=10.2.105.120 ansible_host=10.2.105.160 port=8580 service_type=openjdk
 MrmServer1 vip=10.2.105.119 ansible_host=10.2.105.139 port=8280 service_type=openjdk
 MrmServer2 vip=10.2.105.119 ansible_host=10.2.105.159 port=8280 service_type=openjdk
-
 NisServer1 vip=10.2.105.117 ansible_host=10.2.105.137 port=8180 service_type=openjdk
 NisServer2 vip=10.2.105.117 ansible_host=10.2.105.157 port=8180 service_type=openjdk
 NisServer3 vip=10.2.105.117 ansible_host=10.2.105.166 port=8380
-NisServer4 vip=10.2.105.117 ansible_host=10.2.105.165 port=8580
-NisServer5 vip=10.2.105.117 ansible_host=10.2.105.167 port=8580
-
 ObilServer1 vip=10.2.105.119 ansible_host=10.2.105.139 port=8480 service_type=openjdk
 ObilServer2 vip=10.2.105.119 ansible_host=10.2.105.159 port=8480 service_type=openjdk
 ObilServer3 vip=10.2.105.119 ansible_host=10.2.105.166 port=8480
@@ -182,29 +171,21 @@ ObsServer1 vip=10.2.105.111 ansible_host=10.2.105.131 port=8380 frontend=emr
 ObsServer2 vip=10.2.105.111 ansible_host=10.2.105.151 port=8380 frontend=emr
 ObsServer3 vip=10.2.105.111 ansible_host=10.2.105.145 port=8180 frontend=emr
 ObsServer4 vip=10.2.105.111 ansible_host=10.2.105.165 port=8180 frontend=emr
-
-OerPatMgmtServer1 vip=10.2.105.117 ansible_host=10.2.105.137 port=8280 service_type=openjdk min_memory=10000 max_memory=10000
-OerPatMgmtServer2 vip=10.2.105.117 ansible_host=10.2.105.157 port=8280 service_type=openjdk min_memory=10000 max_memory=10000
-OerPatMgmtServer3 vip=10.2.105.117 ansible_host=10.2.105.145 port=8480 min_memory=10000 max_memory=10000
-OerPatMgmtServer4 vip=10.2.105.117 ansible_host=10.2.105.165 port=8480 min_memory=10000 max_memory=10000
-OerPatMgmtServer5 vip=10.2.105.117 ansible_host=10.2.105.168 port=8280 min_memory=10000 max_memory=10000
-OerPatMgmtServer6 vip=10.2.105.117 ansible_host=10.2.105.169 port=8280 min_memory=10000 max_memory=10000
-
+OerPatMgmtServer1 vip=10.2.105.117 ansible_host=10.2.105.137 port=8280 service_type=openjdk
+OerPatMgmtServer2 vip=10.2.105.117 ansible_host=10.2.105.157 port=8280 service_type=openjdk
+OerPatMgmtServer3 vip=10.2.105.117 ansible_host=10.2.105.145 port=8480
+OerPatMgmtServer4 vip=10.2.105.117 ansible_host=10.2.105.165 port=8480
 OnhServer1 vip=10.2.105.119 ansible_host=10.2.105.139 port=8580 service_type=openjdk
 OnhServer2 vip=10.2.105.119 ansible_host=10.2.105.159 port=8580 service_type=openjdk
 OrServer1 vip=10.2.105.116 ansible_host=10.2.105.136 port=8480 service_type=openjdk
 OrServer2 vip=10.2.105.116 ansible_host=10.2.105.156 port=8480 service_type=openjdk
 PahoServer1 vip=10.2.105.120 ansible_host=10.2.105.140 port=8280 service_type=openjdk
 PahoServer2 vip=10.2.105.120 ansible_host=10.2.105.160 port=8280 service_type=openjdk
-
-PhmServer1 vip=10.2.105.118 ansible_host=10.2.105.138 port=8180 service_type=openjdk min_memory=12000 max_memory=12000
-PhmServer2 vip=10.2.105.118 ansible_host=10.2.105.158 port=8180 service_type=openjdk min_memory=12000 max_memory=12000
-PhmServer3 vip=10.2.105.118 ansible_host=10.2.105.146 port=8280 min_memory=12000 max_memory=12000
-PhmServer4 vip=10.2.105.118 ansible_host=10.2.105.166 port=8280 min_memory=12000 max_memory=12000
-PhmServer5 vip=10.2.105.118 ansible_host=10.2.105.147 port=8180 min_memory=12000 max_memory=12000
-PhmServer6 vip=10.2.105.118 ansible_host=10.2.105.168 port=8180 min_memory=12000 max_memory=12000
-PhmServer7 vip=10.2.105.118 ansible_host=10.2.105.169 port=8180 min_memory=12000 max_memory=12000
-
+PhmServer1 vip=10.2.105.118 ansible_host=10.2.105.138 port=8180 service_type=openjdk
+PhmServer2 vip=10.2.105.118 ansible_host=10.2.105.158 port=8180 service_type=openjdk
+PhmServer3 vip=10.2.105.118 ansible_host=10.2.105.146 port=8280
+PhmServer4 vip=10.2.105.118 ansible_host=10.2.105.166 port=8280
+PhmServer5 vip=10.2.105.118 ansible_host=10.2.105.147 port=8180
 PhnServer1 vip=10.2.105.120 ansible_host=10.2.105.140 port=8480 service_type=openjdk
 PhnServer2 vip=10.2.105.120 ansible_host=10.2.105.160 port=8480 service_type=openjdk
 PmcServer1 vip=10.2.105.113 ansible_host=10.2.105.133 port=8480 service_type=openjdk
@@ -282,7 +263,7 @@ CommServer[1:4]
 ComServer[1:6]
 
 [CpoeServer]
-CpoeServer[1:4]
+CpoeServer[1:2]
 
 [DietServer]
 DietServer[1:2]
@@ -357,7 +338,7 @@ MmsServer[1:2]
 MrmServer[1:2]
 
 [NisServer]
-NisServer[1:5]
+NisServer[1:3]
 
 [ObilServer]
 ObilServer[1:3]
@@ -366,7 +347,7 @@ ObilServer[1:3]
 ObsServer[1:4]
 
 [OerPatMgmtServer]
-OerPatMgmtServer[1:6]
+OerPatMgmtServer[1:4]
 
 [OnhServer]
 OnhServer[1:2]
@@ -379,7 +360,7 @@ OrServer[1:2]
 PahoServer[1:2]
 
 [PhmServer]
-PhmServer[1:7]
+PhmServer[1:5]
 
 [PhnServer]
 PhnServer[1:2]

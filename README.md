@@ -45,3 +45,10 @@ docker run --rm -it \
   -v "$(PWD)/templates/lab/messages.txt:/lab/messages.txt" \
   docker.elastic.co/logstash/logstash:7.3.0 bash
 ```
+```
+docker run --rm -it \
+  -v "$(PWD)/templates/lab/pipeline_jdbc.conf:/usr/share/logstash/pipeline/pipeline_jdbc.conf" \
+  -v "$(PWD)/files/ojdbc8.jar:/jar/ojdbc8.jar" \
+  docker.elastic.co/logstash/logstash:7.3.0 bash
+```
+
