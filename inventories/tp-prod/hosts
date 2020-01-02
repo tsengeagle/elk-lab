@@ -175,9 +175,12 @@ NisServer3 vip=10.2.105.117 ansible_host=10.2.105.166 port=8380
 NisServer4 vip=10.2.105.117 ansible_host=10.2.105.165 port=8580
 NisServer5 vip=10.2.105.117 ansible_host=10.2.105.167 port=8580
 
-ObilServer1 vip=10.2.105.119 ansible_host=10.2.105.139 port=8480 service_type=openjdk
-ObilServer2 vip=10.2.105.119 ansible_host=10.2.105.159 port=8480 service_type=openjdk
-ObilServer3 vip=10.2.105.119 ansible_host=10.2.105.166 port=8480
+ObilServer1 vip=10.2.105.119 ansible_host=10.2.105.139 port=8480 service_type=openjdk min_memory=10000 max_memory=10000
+ObilServer2 vip=10.2.105.119 ansible_host=10.2.105.159 port=8480 service_type=openjdk min_memory=10000 max_memory=10000
+ObilServer3 vip=10.2.105.119 ansible_host=10.2.105.166 port=8480 min_memory=10000 max_memory=10000
+ObilServer4 vip=10.2.105.119 ansible_host=10.2.105.168 port=8480 min_memory=10000 max_memory=10000
+ObilServer5 vip=10.2.105.119 ansible_host=10.2.105.169 port=8480 min_memory=10000 max_memory=10000
+
 ObsServer1 vip=10.2.105.111 ansible_host=10.2.105.131 port=8380 frontend=emr
 ObsServer2 vip=10.2.105.111 ansible_host=10.2.105.151 port=8380 frontend=emr
 ObsServer3 vip=10.2.105.111 ansible_host=10.2.105.145 port=8180 frontend=emr
@@ -360,7 +363,7 @@ MrmServer[1:2]
 NisServer[1:5]
 
 [ObilServer]
-ObilServer[1:3]
+ObilServer[1:5]
 
 [ObsServer]
 ObsServer[1:4]
