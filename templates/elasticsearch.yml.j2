@@ -2,7 +2,7 @@ cluster.name: {{ cluster_name }}
 node.name: {{ node_name }}
 path.data: {{ data_path }}
 path.logs: {{ log_path }}
-discovery.seed_hosts: ["elk-node1", "elk-node2"]
-cluster.initial_master_nodes: ["elk-node1", "elk-node2"]
+discovery.seed_hosts: ["elk-node1", "elk-node2", "elk-node3", "elk-node4"]
+cluster.initial_master_nodes: ["elk-node1", "elk-node2", "elk-node3", "elk-node4"]
 network.host: 0.0.0.0
 http.port: 9200

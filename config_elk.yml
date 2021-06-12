@@ -1,25 +1,43 @@
 - hosts: elasticsearch
   become: yes
   tasks:
-  - name: 設定 jvm 的記憶體使用
-    lineinfile:
-      path: /etc/elasticsearch/jvm.options
-      regexp: '^{{ item }}'
-      line: '{{ item }}8g'
-      backup: yes
-    loop:
-      - '-Xms'
-      - '-Xmx'
+    - name: 確保掛載路徑
+      file:
+        path: /var/lib/elasticsearch
+        owner: elasticsearch
+        group: elasticsearch
+        state: directory
 
-    # 用template設定cluster
-  # - name: 設定ElasticSearch集群
-  #   template:
-  #     src: elasticsearch.yml.j2
-  #     dest: /etc/elasticsearch/elasticsearch.yml
-  #   become: yes
+    - name: 設定 jvm 的記憶體使用
+      lineinfile:
+        path: /etc/elasticsearch/jvm.options
+        regexp: '^{{ item }}'
+        line: '{{ item }}8g'
+        backup: yes
+      loop:
+        - '-Xms'
+        - '-Xmx'
 
-  - name: 重啟ELK
-    service:
-      name: elasticsearch
-      state: restarted
-      enabled: yes
+      # 用template設定cluster
+    - name: 設定ElasticSearch集群
+      template:
+        src: elasticsearch.yml.j2
+        dest: /etc/elasticsearch/elasticsearch.yml
+      vars:
+        - cluster_name: mf-elk
+        - node_name: '{{ inventory_hostname }}'
+        - data_path: /var/lib/elasticsearch
+        - log_path: /var/log/elasticsearch
+      become: yes
+
+    - name: 關閉防火牆
+      service:
+        name: firewalld
+        state: stopped
+        enabled: no
+
+    - name: 重啟ELK
+      service:
+        name: elasticsearch
+        state: restarted
+        enabled: yes

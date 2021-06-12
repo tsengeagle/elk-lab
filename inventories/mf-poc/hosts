@@ -1,17 +1,26 @@
-apm ansible_host=10.2.145.15
+elk-apm1 ansible_host=10.2.145.15
 elk-node1 ansible_host=10.2.145.16
 elk-node2 ansible_host=10.2.145.17
 elk-node3 ansible_host=10.2.145.18
+elk-node4 ansible_host=10.2.145.19
+elk-node5 ansible_host=10.2.145.20
+elk-logstash1 ansible_host=10.2.145.14
 
 SecServer ansible_host=10.2.145.133 path=i8180 war=SecServer port=8180 instance=1 ap_root=/home/tomcat/server
+
+[apm-server]
+elk-apm1
 
 [elasticsearch]
 elk-node1
 elk-node2
 elk-node3
+elk-node4
+elk-node5
 
 [logstash]
 elk-node1
+elk-logstash1
 
 [dashboard]
 elk-node1
@@ -20,6 +29,8 @@ elk-node1
 elk-node1
 elk-node2
 elk-node3
+elk-node4
+elk-node5
 
 [linux-ap-vm]
 SecServer

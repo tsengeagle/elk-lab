@@ -19,6 +19,9 @@
     server_name: {{ virtual_server }}
     log_type: gc
   tags: ["{{ virtual_server }}","{{ service_name }}","gc"]
+  multiline.pattern: '^[[:space:]]'
+  multiline.negate: false
+  multiline.match: after
 
 - type: log
   paths:
