@@ -6,11 +6,18 @@ PUT /_template/temp_service_trace
         "date_detection": true,
         "numeric_detection": true,
         "properties": {
-            "@timestamp": {
-                "type": "date"
-            },
-            "@version": {
-                "type": "long"
+            "host": {
+                "properties": {
+                    "name": {
+                        "type": "text",
+                        "fields": {
+                            "keyword": {
+                                "type": "keyword",
+                                "ignore_above": 256
+                            }
+                        }
+                    }
+                }
             },
             "cal_sha_duration": {
                 "type": "long"
@@ -47,15 +54,6 @@ PUT /_template/temp_service_trace
             },
             "gen_request_duration": {
                 "type": "long"
-            },
-            "host": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "type": "keyword",
-                        "ignore_above": 256
-                    }
-                }
             },
             "init_to_call_duration": {
                 "type": "long"
@@ -181,3 +179,4 @@ DELETE /_template/temp_service_trace
 
 GET /my_index_trace
 
+GET /tp-prod-2021.07.01
