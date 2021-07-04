@@ -6,6 +6,63 @@ PUT /_template/temp_service_trace
         "date_detection": true,
         "numeric_detection": true,
         "properties": {
+            "phase": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "send_time": {
+                "type": "date"
+            },
+            "source_node": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "source_service": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "dest_endpoint": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "dest_service": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "elapsed_time": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
             "host": {
                 "properties": {
                     "name": {
@@ -180,3 +237,5 @@ DELETE /_template/temp_service_trace
 GET /my_index_trace
 
 GET /tp-prod-2021.07.01
+
+GET /my-hello-trace-2021.07.04
