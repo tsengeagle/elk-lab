@@ -1,3 +1,11 @@
 {
-    "acknowledged": true
+    "error": {
+        "root_cause": [{
+            "type": "illegal_argument_exception",
+            "reason": "mapper [user_name] of different type, current_type [long], merged_type [text]"
+        }],
+        "type": "illegal_argument_exception",
+        "reason": "mapper [user_name] of different type, current_type [long], merged_type [text]"
+    },
+    "status": 400
 }

@@ -6,6 +6,69 @@ PUT /_template/temp_service_trace
         "date_detection": true,
         "numeric_detection": true,
         "properties": {
+            "user_dept": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "user_ip": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "user_login_place": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "user_name": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "user_realname": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "svr_id": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
+            "method": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
             "phase": {
                 "type": "text",
                 "fields": {
@@ -234,8 +297,25 @@ GET /_template/temp_service_trace
 
 DELETE /_template/temp_service_trace
 
-GET /my_index_trace
+GET /my-index-trace-2021.07.05
 
 GET /tp-prod-2021.07.01
 
 GET /my-hello-trace-2021.07.04
+
+GET /service-trace-tp-prod-2021.07.05
+
+PUT /service-trace-tp-prod-2021.07.05/_mapping
+{
+    "properties": {
+        "user_name": {
+            "type": "text",
+            "fields": {
+                "keyword": {
+                    "type": "keyword",
+                    "ignore_above": 256
+                }
+            }
+        }
+    }
+}
