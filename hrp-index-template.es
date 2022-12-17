@@ -1,6 +1,11 @@
+PUT /_template/temp_hrp_access
 {
-    "hrp-access-tp-hrp-prod-ap1-2021.09.22": {
-        "mappings": {
+    "index_patterns": [
+        "hrp-access*"
+    ],
+    "mappings": {
+        "date_detection": true,
+        "numeric_detection": true,
             "properties": {
                 "@timestamp": {
                     "type": "date"
@@ -55,13 +60,7 @@
                     }
                 },
                 "bytes": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "type": "keyword",
-                            "ignore_above": 256
-                        }
-                    }
+                    "type": "long"
                 },
                 "clientip": {
                     "type": "text",
@@ -120,9 +119,6 @@
                             }
                         }
                     }
-                },
-                "geoip": {
-                    "type": "object"
                 },
                 "host": {
                     "type": "text",
@@ -230,15 +226,6 @@
                         }
                     }
                 },
-                "type": {
-                    "type": "text",
-                    "fields": {
-                        "keyword": {
-                            "type": "keyword",
-                            "ignore_above": 256
-                        }
-                    }
-                },
                 "verb": {
                     "type": "text",
                     "fields": {
@@ -249,6 +236,16 @@
                     }
                 }
             }
-        }
     }
 }
+
+DELETE /_template/temp_hrp_access
+
+GET /hrp-access-tp-hrp-prod-ap1-2021.09.22
+
+GET /_template/temp_service_trace
+
+GET /_template/temp_hrp_access
+
+GET /hrp-access-tp-hrp-prod-ap1-2021.09.22/_mapping
+

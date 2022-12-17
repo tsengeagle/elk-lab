@@ -1,0 +1,37 @@
+groups:
+- name: his-service-prod-rule
+  rules: 
+  - alert: memory-alert
+    expr: javamelody_memory_used_pct{job=~"tphis(.*)"} > 90
+    for: 1m
+    labels:
+      service: his
+      environment: prod
+      location: tp
+    annotations:
+      summary: "{{$labels.instance}} 記憶體超標"
+      description: "{{$labels.instance}} 記憶體用量超過90%，將有OOM風險，目前: {{humanize $value}} %."
+
+  - alert: openfile-alert
+    expr: javamelody_system_unix_file_descriptors_open_pct{job=~"tphis(.*)"} > 80
+    for: 1m
+    labels:
+      service: his
+      environment: prod
+      location: tp
+    annotations:
+      summary: "{{$labels.instance}} 檔案指標超標"
+      description: "{{$labels.instance}} 檔案指標超過80%，將有too many opened file風險，目前: {{humanize $value}} %."
+
+- name: test-rule
+  rules: 
+  - alert: test-alert
+    expr: javamelody_memory_used_pct{job=~"tphis(.*)"} > 100
+    for: 30s
+    labels: 
+      team: lab
+      type: lab
+    annotations:
+      summary: "test alert rule: {{$labels.instance}}記憶體超標"
+      description: "this is test alert rule {{$labels.instance}}超過100%，目前使用量為: {{humanize $value}}% ."
+

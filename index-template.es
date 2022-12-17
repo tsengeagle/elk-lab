@@ -1,11 +1,30 @@
 
 PUT /_template/temp_service_trace
 {
-    "index_patterns":["service-trace*","my-trace*","my-index-trace*"],
-    "mappings":{
+    "index_patterns": [
+        "service-trace*",
+        "my-trace*",
+        "my-index-trace*"
+    ],
+    "mappings": {
         "date_detection": true,
-        "numeric_detection": true,
+        "numeric_detection": false,
         "properties": {
+            "elapsed_now": {
+                "type": "long"
+            },
+            "elapsed_time": {
+                "type": "long"
+            },
+            "dept": {
+                "type": "text",
+                "fields": {
+                    "keyword": {
+                        "type": "keyword",
+                        "ignore_above": 256
+                    }
+                }
+            },
             "user_dept": {
                 "type": "text",
                 "fields": {
@@ -109,15 +128,6 @@ PUT /_template/temp_service_trace
                 }
             },
             "dest_service": {
-                "type": "text",
-                "fields": {
-                    "keyword": {
-                        "type": "keyword",
-                        "ignore_above": 256
-                    }
-                }
-            },
-            "elapsed_time": {
                 "type": "text",
                 "fields": {
                     "keyword": {
@@ -308,14 +318,12 @@ GET /service-trace-tp-prod-2021.07.05
 PUT /service-trace-tp-prod-2021.07.05/_mapping
 {
     "properties": {
-        "user_name": {
-            "type": "text",
-            "fields": {
-                "keyword": {
-                    "type": "keyword",
-                    "ignore_above": 256
-                }
+        "dept": {
+                "type": "text"
             }
-        }
     }
 }
+
+GET /_cat/indices
+
+
